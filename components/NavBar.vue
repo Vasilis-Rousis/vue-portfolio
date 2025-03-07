@@ -74,6 +74,19 @@
             />
           </NuxtLink>
         </div>
+        
+        <!-- Mobile Dark Mode Toggle -->
+        <div class="pt-2 mt-2 border-t border-border">
+          <button 
+            class="flex w-full items-center justify-between text-sm py-2 font-medium text-foreground hover:text-primary transition-colors" 
+            @click="toggleDarkMode"
+          >
+            <div class="relative">
+              <Icon name="lucide:sun" class="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Icon name="lucide:moon" class="absolute top-0 left-0 h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </div>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
