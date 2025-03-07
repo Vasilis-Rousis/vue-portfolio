@@ -1,9 +1,10 @@
+<!-- pages/about.vue -->
 <template>
   <div>
     <!-- Hero Section -->
     <section class="py-16 md:py-24 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"/>
-      <div class="container px-4 md:px-6 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
             About Me
@@ -17,7 +18,7 @@
 
     <!-- Bio Section -->
     <section class="py-12 md:py-16">
-      <div class="container px-4 md:px-6">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="relative">
             <div class="absolute -inset-4 rounded-xl bg-primary/10 blur-xl opacity-70"/>
@@ -46,9 +47,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- Experience Section -->
     <section class="py-12 md:py-16 bg-muted/30">
-      <div class="container px-4 md:px-6">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold tracking-tight text-center mb-12">Experience</h2>
         <div class="max-w-3xl mx-auto">
           <div class="space-y-12">
@@ -86,9 +90,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- Skills and Tools Section -->
     <section class="py-12 md:py-16">
-      <div class="container px-4 md:px-6">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold tracking-tight text-center mb-12">Skills & Tools</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card class="card-hover shadow-sm">
@@ -180,9 +187,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- CTA Section -->
     <section class="py-12 md:py-16 bg-primary text-primary-foreground">
-      <div class="container px-4 md:px-6 text-center">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to Work Together?</h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
           I'm always open to discussing product design work or partnership opportunities.

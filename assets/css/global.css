@@ -1,4 +1,4 @@
-/* Global styles */
+/* assets/css/global.css */
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -29,6 +29,68 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Section spacing */
+section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+section + section {
+  border-top: 1px solid hsl(var(--border) / 0.2);
+}
+
+/* Section with background */
+section.with-bg {
+  background-color: hsl(var(--muted) / 0.2);
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
 }
 
 /* Image transitions */
@@ -104,4 +166,31 @@ img {
 
 .dark .shadow-glow {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Section dividers */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+  margin: 2rem 0;
+}
+
+/* Content width constraint */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .content-wrapper {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-wrapper {
+    padding: 0 2rem;
+  }
 }

@@ -1,15 +1,16 @@
+<!-- pages/index.vue -->
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section class="py-16 md:py-28 lg:py-36 relative overflow-hidden border-none">
       <div class="absolute inset-0 bg-grid-pattern opacity-5"/>
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl"/>
       <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl"/>
       
-      <div class="container px-4 md:px-6 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
           <div class="space-y-6">
-            <h1 class="text-5xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">
               Hi, I'm <span class="font-extrabold">Your Name</span>
             </h1>
             <p class="max-w-[600px] text-gray-600 dark:text-gray-300 md:text-xl/relaxed lg:text-lg/relaxed xl:text-xl/relaxed">
@@ -54,9 +55,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- Featured Projects Section -->
-    <section id="projects" class="py-16 md:py-24">
-      <div class="container px-4 md:px-6">
+    <section id="projects" class="py-16 md:py-24 with-bg">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 class="text-3xl font-bold tracking-tight md:text-4xl relative">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">Featured Projects</span>
@@ -118,12 +122,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- Skills Section -->
-    <section class="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"/>
-      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"/>
-      
-      <div class="container px-4 md:px-6">
+    <section class="py-16 md:py-24 relative overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 class="text-3xl font-bold tracking-tight md:text-4xl relative">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">Skills & Technologies</span>
@@ -160,9 +164,12 @@
       </div>
     </section>
     
+    <!-- Section divider -->
+    <div class="section-divider" />
+    
     <!-- Testimonials Section -->
-    <section class="py-16 md:py-24">
-      <div class="container px-4 md:px-6">
+    <section class="py-16 md:py-24 with-bg">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 class="text-3xl font-bold tracking-tight md:text-4xl relative">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">Client Testimonials</span>
@@ -204,9 +211,12 @@
       </div>
     </section>
     
+    <!-- Section divider -->
+    <div class="section-divider" />
+    
     <!-- CTA Section -->
     <section class="py-16 md:py-24 bg-gradient-to-br from-primary/90 to-violet-600/90 text-white">
-      <div class="container px-4 md:px-6 text-center">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl mb-4">Ready to Start Your Project?</h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
           Let's work together to bring your vision to life with stunning design and flawless functionality.

@@ -1,9 +1,10 @@
+<!-- components/NavBar.vue -->
 <template>
   <header class="sticky top-0 z-40 w-full border-b bg-background/90 backdrop-blur-sm">
-    <div class="md:container md:mx-auto flex h-16 items-center justify-between">
+    <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
       <div class="flex gap-6 md:gap-10">
         <NuxtLink to="/" class="flex items-center space-x-2">
-          <span class="font-bold text-xl pl-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">
+          <span class="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400">
             Vasilis Rousis
           </span>
         </NuxtLink>

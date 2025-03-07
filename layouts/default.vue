@@ -1,13 +1,14 @@
+<!-- layouts/default.vue -->
 <template>
   <div class="min-h-screen bg-background text-foreground flex flex-col antialiased transition-colors duration-300">
     <NavBar />
     
-    <main class="flex-1">
+    <main class="flex-1 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <slot />
     </main>
     
-    <footer class="border-t py-8 bg-muted/30">
-      <div class="container">
+    <footer class="border-t py-8 bg-muted/30 mt-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="space-y-4">
             <h3 class="font-semibold text-lg">Your Name</h3>

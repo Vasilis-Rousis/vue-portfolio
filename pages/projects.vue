@@ -1,9 +1,10 @@
+<!-- pages/projects.vue -->
 <template>
   <div>
     <!-- Hero Section -->
     <section class="py-16 md:py-24 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"/>
-      <div class="container px-4 md:px-6 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
             My Projects
@@ -17,7 +18,7 @@
 
     <!-- Filter Section -->
     <section class="pb-12">
-      <div class="container px-4 md:px-6">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-center gap-3 mb-8">
           <Button 
             :variant="activeFilter === 'all' ? 'default' : 'outline'" 
@@ -48,8 +49,8 @@
     </section>
 
     <!-- Projects Grid -->
-    <section class="py-12">
-      <div class="container px-4 md:px-6">
+    <section class="py-12 bg-muted/30">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div 
             v-for="project in filteredProjects" 
@@ -113,9 +114,12 @@
       </div>
     </section>
 
+    <!-- Section divider -->
+    <div class="section-divider" />
+
     <!-- CTA Section -->
-    <section class="py-16 md:py-24 bg-muted/30 relative">
-      <div class="container px-4 md:px-6">
+    <section class="py-16 md:py-24 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
           <h2 class="text-3xl font-bold tracking-tight mb-4">Have a project in mind?</h2>
           <p class="text-lg text-muted-foreground mb-8">
