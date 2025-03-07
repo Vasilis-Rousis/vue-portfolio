@@ -21,19 +21,26 @@
       
       <!-- Desktop menu -->
       <nav class="hidden md:flex items-center space-x-6">
-        <NuxtLink 
-          v-for="item in navItems" 
-          :key="item.href" 
-          :to="item.href" 
-          class="relative text-sm font-medium transition-colors hover:text-primary"
-          :class="route === item.href ? 'text-primary' : 'text-foreground'"
-        >
-          {{ item.label }}
-          <span 
-            v-if="route === item.href"
-            class="absolute -bottom-6 left-0 right-0 h-0.5 bg-primary"
-          />
-        </NuxtLink>
+        <div v-for="item in navItems" :key="item.href" class="h-16 flex items-center">
+          <div class="relative h-full flex items-center">
+            <NuxtLink 
+              :to="item.href" 
+              class="text-sm font-medium transition-colors hover:text-primary h-full flex items-center"
+              :class="$route.path === item.href ? 'text-primary' : 'text-foreground'"
+            >
+              {{ item.label }}
+            </NuxtLink>
+            <!-- Underline indicator -->
+            <div 
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-all duration-300 ease-in-out"
+              :style="{
+                transform: $route.path === item.href ? 'scaleX(1)' : 'scaleX(0)',
+                opacity: $route.path === item.href ? 1 : 0,
+                transformOrigin: 'left'
+              }"
+            />
+          </div>
+        </div>
         
         <Button variant="outline" size="sm" class="ml-4" @click="toggleDarkMode">
           <Icon name="lucide:sun" class="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -49,27 +56,33 @@
       class="md:hidden px-4 py-3 border-t bg-background"
     >
       <nav class="flex flex-col space-y-3">
-        <NuxtLink 
-          v-for="item in navItems" 
-          :key="item.href" 
-          :to="item.href" 
-          class="text-sm py-1 font-medium transition-colors hover:text-primary"
-          :class="route === item.href ? 'text-primary' : 'text-foreground'"
-          @click="isMenuOpen = false"
-        >
-          {{ item.label }}
-        </NuxtLink>
+        <div v-for="item in navItems" :key="item.href" class="relative">
+          <NuxtLink 
+            :to="item.href" 
+            class="block text-sm py-2 font-medium transition-colors hover:text-primary"
+            :class="$route.path === item.href ? 'text-primary' : 'text-foreground'"
+            @click="isMenuOpen = false"
+          >
+            {{ item.label }}
+            <div 
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-all duration-300 ease-in-out"
+              :style="{
+                transform: $route.path === item.href ? 'scaleX(1)' : 'scaleX(0)',
+                opacity: $route.path === item.href ? 1 : 0,
+                transformOrigin: 'left'
+              }"
+            />
+          </NuxtLink>
+        </div>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 
 const colorMode = useColorMode();
-const route = computed(() => useRoute().path);
 const isMenuOpen = ref(false);
 
 const toggleDarkMode = () => {
