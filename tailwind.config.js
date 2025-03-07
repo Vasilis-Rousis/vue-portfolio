@@ -1,6 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {    darkMode: ["class"],
-    content: [],
+	content: [
+		'./components/**/*.{vue,js}',
+		'./layouts/**/*.vue',
+		'./pages/**/*.vue',
+		'./plugins/**/*.{js,ts}',
+		'./nuxt.config.{js,ts}',
+		'./assets/css/global.css'
+	],
   theme: {
   	extend: {
   		borderRadius: {

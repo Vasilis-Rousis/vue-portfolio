@@ -17,7 +17,7 @@
               Developer & Designer creating beautiful digital experiences with a focus on user-centered design and performance
             </p>
             <div class="flex flex-col gap-3 min-[400px]:flex-row">
-              <Button class="group bg-primary hover:bg-primary/90 text-white transition-all duration-300 shadow-lg hover:shadow-primary/25" as-child>
+              <Button class="group bg-primary hover:bg-primary/90 text-black transition-all duration-300 shadow-lg hover:shadow-primary/25" as-child>
                 <NuxtLink to="/projects" class="flex items-center">
                   <Icon name="lucide:briefcase" class="mr-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   View My Work
@@ -34,7 +34,7 @@
           <div class="flex justify-center">
             <div class="relative">
               <div class="absolute -inset-1 bg-gradient-to-r from-primary to-violet-500 rounded-full blur-md opacity-70 animate-pulse"/>
-              <Avatar class="h-32 w-32 border-4 border-white dark:border-gray-950 relative">
+              <Avatar class="h-72 w-72 border-4 border-white dark:border-gray-950 relative">
                 <AvatarImage src="/your-photo.jpg" alt="Your Name" />
                 <AvatarFallback class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">YN</AvatarFallback>
               </Avatar>
@@ -221,7 +221,7 @@
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
           Let's work together to bring your vision to life with stunning design and flawless functionality.
         </p>
-        <Button size="lg" variant="secondary" class="glass font-medium" as-child>
+        <Button size="lg" variant="secondary" class="glass font-medium transition-all duration-300 shadow-lg hover:shadow-primary/25" as-child>
           <NuxtLink to="/contact" class="flex items-center">
             <Icon name="lucide:mail" class="mr-2 h-5 w-5" />
             Get in Touch
