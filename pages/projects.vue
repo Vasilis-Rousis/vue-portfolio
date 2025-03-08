@@ -59,7 +59,7 @@
           >
             <Card class="overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 card-hover">
               <div class="relative">
-                <AspectRatio ratio="16:9">
+                <AspectRatio :ratio="16/9">
                   <img 
                     :src="project.image" 
                     :alt="project.title" 

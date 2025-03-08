@@ -76,7 +76,7 @@
             :key="project.id" 
             class="overflow-hidden group border-0 bg-card shadow-md hover:shadow-xl transition-all duration-300 card-hover"
           >
-            <AspectRatio ratio="16:9">
+            <AspectRatio :ratio="16/9">
               <div class="overflow-hidden">
                 <img 
                   :src="project.image" 

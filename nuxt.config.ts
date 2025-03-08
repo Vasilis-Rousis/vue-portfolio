@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css', '~/assets/css/global.css'],
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxt/eslint', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxt/eslint',
+    '@nuxtjs/color-mode',
+    '@nuxt/image'
+  ],
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
