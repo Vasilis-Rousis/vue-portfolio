@@ -7,16 +7,16 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxt/eslint',
     '@nuxtjs/color-mode',
-    '@nuxt/image'
+    '@nuxt/image',
   ],
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
-    fallback: 'light',    // fallback value if not system preference found
+    fallback: 'light', // fallback value if not system preference found
   },
   shadcn: {
     prefix: '',
-    componentDir: './components/ui'
+    componentDir: './components/ui',
   },
-  compatibilityDate: '2025-03-07'
+  compatibilityDate: '2025-03-07',
 })

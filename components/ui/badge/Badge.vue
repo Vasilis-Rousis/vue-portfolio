@@ -16,11 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <Primitive
-    :as="as"
-    :as-child="asChild"
-    :class="cn(badgeVariants({ variant }), props.class)"
-  >
+  <Primitive :as="as" :as-child="asChild" :class="cn(badgeVariants({ variant }), props.class)">
     <slot />
   </Primitive>
 </template>

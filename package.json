@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,6 +27,9 @@
     "@nuxt/eslint": "^1.1.0",
     "@nuxt/image": "^1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/tailwindcss": "^6.13.1"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.5.0",
+    "prettier": "^3.5.3"
   }
 }

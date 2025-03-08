@@ -2,7 +2,7 @@
   <div>
     <!-- Hero Section -->
     <section class="py-16 md:py-24 relative">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div class="container px-4 md:px-6 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
@@ -24,67 +24,74 @@
             <Card class="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
-                <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+                <CardDescription
+                  >Fill out the form below and I'll get back to you as soon as
+                  possible.</CardDescription
+                >
               </CardHeader>
               <CardContent>
                 <form class="space-y-6" @submit.prevent="submitForm">
                   <div class="space-y-2">
                     <label for="name" class="text-sm font-medium">Name</label>
-                    <input 
-                      id="name" 
+                    <input
+                      id="name"
                       v-model="form.name"
-                      type="text" 
-                      required 
+                      type="text"
+                      required
                       class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       placeholder="Your name"
-                    >
+                    />
                   </div>
-                  
+
                   <div class="space-y-2">
                     <label for="email" class="text-sm font-medium">Email</label>
-                    <input 
-                      id="email" 
+                    <input
+                      id="email"
                       v-model="form.email"
-                      type="email" 
-                      required 
+                      type="email"
+                      required
                       class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       placeholder="your.email@example.com"
-                    >
+                    />
                   </div>
-                  
+
                   <div class="space-y-2">
                     <label for="subject" class="text-sm font-medium">Subject</label>
-                    <input 
-                      id="subject" 
+                    <input
+                      id="subject"
                       v-model="form.subject"
-                      type="text" 
-                      required 
+                      type="text"
+                      required
                       class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       placeholder="What's this regarding?"
-                    >
+                    />
                   </div>
-                  
+
                   <div class="space-y-2">
                     <label for="message" class="text-sm font-medium">Message</label>
-                    <textarea 
-                      id="message" 
+                    <textarea
+                      id="message"
                       v-model="form.message"
-                      required 
-                      rows="5" 
+                      required
+                      rows="5"
                       class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       placeholder="Your message here..."
                     />
                   </div>
-                  
+
                   <Button type="submit" class="w-full" :disabled="isSubmitting">
-                    <Icon v-if="isSubmitting" name="lucide:loader-2" class="mr-2 h-4 w-4 animate-spin" />
+                    <Icon
+                      v-if="isSubmitting"
+                      name="lucide:loader-2"
+                      class="mr-2 h-4 w-4 animate-spin"
+                    />
                     {{ isSubmitting ? 'Sending...' : 'Send Message' }}
                   </Button>
                 </form>
               </CardContent>
             </Card>
           </div>
-          
+
           <!-- Contact Info -->
           <div class="space-y-8">
             <div>
@@ -92,22 +99,28 @@
               <p class="text-muted-foreground mb-6">
                 Feel free to reach out to me through any of the following methods:
               </p>
-              
+
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div
+                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
                     <Icon name="lucide:mail" class="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h3 class="font-medium">Email</h3>
                     <p class="text-sm text-muted-foreground">
-                      <a href="mailto:your.email@example.com" class="hover-underline">your.email@example.com</a>
+                      <a href="mailto:your.email@example.com" class="hover-underline"
+                        >your.email@example.com</a
+                      >
                     </p>
                   </div>
                 </div>
-                
+
                 <div class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div
+                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
                     <Icon name="lucide:phone" class="h-5 w-5 text-primary" />
                   </div>
                   <div>
@@ -117,9 +130,11 @@
                     </p>
                   </div>
                 </div>
-                
+
                 <div class="flex items-start gap-4">
-                  <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div
+                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
                     <Icon name="lucide:map-pin" class="h-5 w-5 text-primary" />
                   </div>
                   <div>
@@ -129,41 +144,60 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Social Media -->
             <div>
               <h2 class="text-2xl font-bold tracking-tight mb-4">Connect With Me</h2>
               <div class="flex gap-4">
-                <a href="#" class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a
+                  href="#"
+                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
                   <Icon name="lucide:github" class="h-5 w-5" />
                 </a>
-                <a href="#" class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a
+                  href="#"
+                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
                   <Icon name="lucide:linkedin" class="h-5 w-5" />
                 </a>
-                <a href="#" class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a
+                  href="#"
+                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
                   <Icon name="lucide:twitter" class="h-5 w-5" />
                 </a>
-                <a href="#" class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a
+                  href="#"
+                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
                   <Icon name="lucide:instagram" class="h-5 w-5" />
                 </a>
               </div>
             </div>
-            
+
             <!-- FAQ -->
             <div>
               <h2 class="text-2xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
               <div class="space-y-4">
                 <div>
                   <h3 class="font-medium">What's your typical response time?</h3>
-                  <p class="text-sm text-muted-foreground">I usually respond within 24 hours during business days.</p>
+                  <p class="text-sm text-muted-foreground">
+                    I usually respond within 24 hours during business days.
+                  </p>
                 </div>
                 <div>
                   <h3 class="font-medium">Do you offer remote services?</h3>
-                  <p class="text-sm text-muted-foreground">Yes, I work remotely with clients worldwide.</p>
+                  <p class="text-sm text-muted-foreground">
+                    Yes, I work remotely with clients worldwide.
+                  </p>
                 </div>
                 <div>
                   <h3 class="font-medium">What's your pricing structure?</h3>
-                  <p class="text-sm text-muted-foreground">Pricing varies depending on project scope and requirements. Contact me for a custom quote.</p>
+                  <p class="text-sm text-muted-foreground">
+                    Pricing varies depending on project scope and requirements. Contact me for a
+                    custom quote.
+                  </p>
                 </div>
               </div>
             </div>
@@ -171,14 +205,16 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Map Section (optional) -->
     <section class="py-12 md:py-16 bg-muted/30">
       <div class="container px-4 md:px-6">
         <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
           <!-- Replace with actual map or image -->
           <div class="w-full h-full flex items-center justify-center bg-muted">
-            <p class="text-muted-foreground">Map placeholder (integrate Google Maps or other map service here)</p>
+            <p class="text-muted-foreground">
+              Map placeholder (integrate Google Maps or other map service here)
+            </p>
           </div>
         </div>
       </div>
@@ -187,32 +223,32 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive } from 'vue'
 
 const form = reactive({
   name: '',
   email: '',
   subject: '',
-  message: ''
-});
+  message: '',
+})
 
-const isSubmitting = ref(false);
+const isSubmitting = ref(false)
 
 function submitForm() {
-  isSubmitting.value = true;
-  
+  isSubmitting.value = true
+
   // Simulate form submission
   setTimeout(() => {
     // Reset form
-    form.name = '';
-    form.email = '';
-    form.subject = '';
-    form.message = '';
-    
-    isSubmitting.value = false;
-    
+    form.name = ''
+    form.email = ''
+    form.subject = ''
+    form.message = ''
+
+    isSubmitting.value = false
+
     // Show success message (you would implement a proper notification system)
-    alert('Message sent successfully!');
-  }, 1500);
+    alert('Message sent successfully!')
+  }, 1500)
 }
 </script>
