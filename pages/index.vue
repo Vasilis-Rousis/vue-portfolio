@@ -13,17 +13,17 @@
             <h1
               class="text-4xl md:text-5xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400"
             >
-              Hi, I'm <span class="font-extrabold">Your Name</span>
+              Hi, I'm <span class="font-extrabold">Vasilis</span>
             </h1>
             <p
               class="max-w-[600px] text-gray-600 dark:text-gray-300 md:text-xl/relaxed lg:text-lg/relaxed xl:text-xl/relaxed"
             >
-              Developer & Designer creating beautiful digital experiences with a focus on
+              Software developer creating beautiful digital experiences with a focus on
               user-centered design and performance
             </p>
             <div class="flex flex-col gap-3 min-[400px]:flex-row">
               <Button
-                class="group bg-primary hover:bg-primary/90 text-black transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                class="group bg-primary hover:bg-primary/90 text-white dark:text-black transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 as-child
               >
                 <NuxtLink to="/projects" class="flex items-center">
@@ -106,7 +106,7 @@
           >
             <AspectRatio :ratio="16 / 9">
               <div class="overflow-hidden">
-                <img
+                <nuxt-img
                   :src="project.image"
                   :alt="project.title"
                   class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
@@ -210,54 +210,54 @@
     <!-- Section divider -->
     <div class="section-divider" />
 
-    <!-- Testimonials Section -->
+    <!-- Certifications Section -->
     <section class="py-16 md:py-24 with-bg">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <h2 class="text-3xl font-bold tracking-tight md:text-4xl relative">
             <span
               class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400"
-              >Client Testimonials</span
+              >Certifications</span
             >
             <span
               class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary rounded"
             />
           </h2>
           <p class="max-w-[700px] text-muted-foreground md:text-lg/relaxed">
-            What people say about working with me
+            Professional qualifications and achievements
           </p>
         </div>
 
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-8 md:grid-cols-2">
           <Card
-            v-for="(testimonial, index) in testimonials"
+            v-for="(certification, index) in certifications"
             :key="index"
-            class="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300"
+            class="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300 h-full"
           >
             <CardContent class="pt-6">
               <div class="flex justify-center mb-4">
-                <div class="flex text-amber-400">
-                  <Icon
-                    v-for="i in 5"
-                    :key="i"
-                    name="lucide:star"
-                    class="h-5 w-5"
-                    :class="i <= testimonial.rating ? 'fill-current' : 'text-muted'"
-                  />
+                <div class="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon :name="certification.icon" class="h-8 w-8 text-primary" />
                 </div>
               </div>
-              <blockquote class="text-center mb-6">
-                <p class="text-muted-foreground italic">"{{ testimonial.text }}"</p>
-              </blockquote>
-              <div class="flex items-center justify-center gap-4">
-                <Avatar class="h-12 w-12">
-                  <AvatarImage :src="testimonial.avatar" :alt="testimonial.name" />
-                  <AvatarFallback>{{ testimonial.initials }}</AvatarFallback>
-                </Avatar>
-                <div class="text-center">
-                  <h4 class="font-medium">{{ testimonial.name }}</h4>
-                  <p class="text-sm text-muted-foreground">{{ testimonial.title }}</p>
-                </div>
+              <div class="text-center mb-6">
+                <h3 class="text-xl font-bold mb-2">{{ certification.name }}</h3>
+                <p class="text-muted-foreground">{{ certification.issuer }}</p>
+                <Badge class="mt-2">{{ certification.date }}</Badge>
+              </div>
+              <p class="text-center text-muted-foreground">{{ certification.description }}</p>
+              <div class="mt-6 flex justify-center">
+                <Button variant="outline" size="sm" as-child>
+                  <a
+                    :href="certification.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center"
+                  >
+                    <Icon name="lucide:external-link" class="mr-2 h-4 w-4" />
+                    View Certificate
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -281,7 +281,7 @@
         <Button
           size="lg"
           variant="secondary"
-          class="glass font-medium transition-all duration-300 shadow-lg hover:shadow-primary/25"
+          class="glass text-white font-medium transition-all duration-300 shadow-lg hover:shadow-primary/25"
           as-child
         >
           <NuxtLink to="/contact" class="flex items-center">
@@ -360,31 +360,25 @@ const additionalSkills = [
   'Performance Optimization',
 ]
 
-// Testimonials
-const testimonials = [
+// Certifications Data
+const certifications = [
   {
-    name: 'Jane Smith',
-    title: 'CEO at TechStart',
-    text: 'Working with this developer was a game-changer for our startup. The attention to detail and commitment to quality exceeded our expectations.',
-    avatar: '/testimonials/person1.jpg',
-    initials: 'JS',
-    rating: 5,
+    name: 'Advanced Vue.js Development',
+    issuer: 'Vue Mastery',
+    date: 'March 2024',
+    description:
+      'Comprehensive certification in advanced Vue.js development techniques, including state management, performance optimization, and component architecture.',
+    icon: 'lucide:badge-check',
+    link: '#',
   },
   {
-    name: 'John Doe',
-    title: 'Marketing Director',
-    text: "The website redesign completely transformed our online presence. We've seen a significant increase in engagement and conversion rates.",
-    avatar: '/testimonials/person2.jpg',
-    initials: 'JD',
-    rating: 5,
-  },
-  {
-    name: 'Emily Chen',
-    title: 'Product Manager',
-    text: 'The developer delivered our app on time and within budget. Their technical skills and communication made the project run smoothly.',
-    avatar: '/testimonials/person3.jpg',
-    initials: 'EC',
-    rating: 5,
+    name: 'UI/UX Design Professional',
+    issuer: 'Design Academy',
+    date: 'November 2023',
+    description:
+      'Professional certification in user interface and experience design, covering design systems, usability testing, and creating accessible digital experiences.',
+    icon: 'lucide:layout-dashboard',
+    link: '#',
   },
 ]
 

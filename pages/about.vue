@@ -23,7 +23,7 @@
           <div class="relative">
             <div class="absolute -inset-4 rounded-xl bg-primary/10 blur-xl opacity-70" />
             <div class="relative aspect-square overflow-hidden rounded-xl">
-              <img src="/your-photo.jpg" alt="Your Name" class="object-cover w-full h-full" />
+              <nuxt-img src="/your-photo.jpg" alt="Your Name" class="object-cover w-full h-full" />
             </div>
           </div>
           <div class="space-y-6">
