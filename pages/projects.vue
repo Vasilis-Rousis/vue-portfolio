@@ -58,7 +58,7 @@
             >
               <div class="relative">
                 <AspectRatio :ratio="16 / 9">
-                  <nuxt-img
+                  <NuxtImg
                     :src="project.image"
                     :alt="project.title"
                     class="object-cover w-full transition-transform duration-500 group-hover:scale-105"

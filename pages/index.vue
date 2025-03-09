@@ -106,7 +106,7 @@
           >
             <AspectRatio :ratio="16 / 9">
               <div class="overflow-hidden">
-                <nuxt-img
+                <NuxtImg
                   :src="project.image"
                   :alt="project.title"
                   class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
