@@ -15,7 +15,7 @@ const props = defineProps({
     type: String,
     default: 'currentColor',
   },
-  class: {
+  customClass: {
     type: String,
     default: '',
   },
@@ -35,7 +35,13 @@ const iconComponent = computed(() => {
 </script>
 
 <template>
-  <component :is="iconComponent" v-if="iconComponent" :size="size" :color="color" :class="class" />
+  <component
+    :is="iconComponent"
+    v-if="iconComponent"
+    :size="size"
+    :color="color"
+    :class="customClass"
+  />
   <span v-else class="icon-fallback">{{ name }}</span>
 </template>
 
