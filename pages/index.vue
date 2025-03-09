@@ -102,44 +102,51 @@
           <Card
             v-for="project in featuredProjects"
             :key="project.id"
-            class="overflow-hidden group border-0 bg-card shadow-md hover:shadow-xl transition-all duration-300 card-hover"
+            class="overflow-hidden group border-0 bg-card shadow-md hover:shadow-xl transition-all duration-300 card-hover flex flex-col"
           >
-            <AspectRatio :ratio="16 / 9">
-              <div class="overflow-hidden">
+            <div class="w-full">
+              <AspectRatio :ratio="4 / 3" class="overflow-hidden">
                 <NuxtImg
                   :src="project.image"
                   :alt="project.title"
-                  class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  class="object-cover w-full h-full"
                 />
-              </div>
-            </AspectRatio>
-            <CardHeader>
-              <CardTitle class="text-xl font-bold">{{ project.title }}</CardTitle>
-              <CardDescription>{{ project.description }}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div class="flex flex-wrap gap-2">
-                <Badge
-                  v-for="tag in project.tags"
-                  :key="tag"
-                  variant="secondary"
-                  class="bg-muted text-muted-foreground"
-                >
-                  {{ tag }}
-                </Badge>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button variant="link" class="p-0 text-primary group-hover:underline" as-child>
-                <NuxtLink :to="project.link" class="flex items-center">
-                  View Project
-                  <Icon
-                    name="lucide:arrow-right"
-                    class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
-                  />
-                </NuxtLink>
-              </Button>
-            </CardFooter>
+                <div
+                  class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/100 to-transparent"
+                />
+              </AspectRatio>
+            </div>
+
+            <!-- Content container -->
+            <div class="flex-grow">
+              <CardHeader>
+                <CardTitle class="text-xl font-bold">{{ project.title }}</CardTitle>
+                <CardDescription>{{ project.description }}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div class="flex flex-wrap gap-2">
+                  <Badge
+                    v-for="tag in project.tags"
+                    :key="tag"
+                    variant="secondary"
+                    class="bg-muted text-muted-foreground"
+                  >
+                    {{ tag }}
+                  </Badge>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button variant="link" class="p-0 text-primary group-hover:underline" as-child>
+                  <NuxtLink :to="project.link" class="flex items-center">
+                    View Project
+                    <Icon
+                      name="lucide:arrow-right"
+                      class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                    />
+                  </NuxtLink>
+                </Button>
+              </CardFooter>
+            </div>
           </Card>
         </div>
         <div class="flex justify-center mt-12">
@@ -312,7 +319,7 @@ const featuredProjects = [
     id: 1,
     title: 'E-commerce Website',
     description: 'A fully responsive e-commerce platform built with Vue 3 and Node.js',
-    image: '/projects/project1.jpg',
+    image: 'warehouse-management.jpg',
     tags: ['Vue 3', 'Node.js', 'MongoDB'],
     link: '/projects',
   },
@@ -320,7 +327,7 @@ const featuredProjects = [
     id: 2,
     title: 'Task Management App',
     description: 'A productivity app with drag-and-drop functionality',
-    image: '/projects/project2.jpg',
+    image: 'wonderguide.jpg',
     tags: ['Vue 3', 'Firebase', 'Tailwind CSS'],
     link: '/projects',
   },
@@ -328,7 +335,7 @@ const featuredProjects = [
     id: 3,
     title: 'Weather Dashboard',
     description: 'Real-time weather information with interactive charts',
-    image: '/projects/project3.jpg',
+    image: 'portfolio-website.jpg',
     tags: ['Vue 3', 'API Integration', 'Chart.js'],
     link: '/projects',
   },
