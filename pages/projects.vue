@@ -61,6 +61,11 @@
                   <NuxtImg
                     :src="project.image"
                     :alt="project.title"
+                    width="600"
+                    height="338"
+                    placeholder
+                    format="webp"
+                    loading="lazy"
                     class="object-cover w-full transition-transform duration-500 group-hover:scale-105"
                   />
                 </AspectRatio>

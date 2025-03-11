@@ -55,7 +55,14 @@
                 class="absolute -inset-1 bg-gradient-to-r from-primary to-violet-500 rounded-full blur-md opacity-70 animate-pulse"
               />
               <Avatar class="h-72 w-72 border-4 border-white dark:border-gray-950 relative">
-                <AvatarImage src="/your-photo.jpg" alt="Your Name" />
+                <AvatarImage
+                  src="/your-photo.jpg"
+                  alt="Your Name"
+                  width="288"
+                  height="288"
+                  loading="eager"
+                  fetchpriority="high"
+                />
                 <AvatarFallback
                   class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900"
                   >YN</AvatarFallback
@@ -109,6 +116,11 @@
                 <NuxtImg
                   :src="project.image"
                   :alt="project.title"
+                  width="400"
+                  height="300"
+                  format="webp"
+                  placeholder
+                  loading="lazy"
                   class="object-cover w-full h-full"
                 />
                 <div
