@@ -140,6 +140,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+defineOgImageComponent('NuxtSeo')
+
 const activeFilter = ref('all')
 
 const projects = [

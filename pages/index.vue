@@ -317,6 +317,8 @@
 // Import functions
 import { onMounted } from 'vue'
 
+defineOgImageComponent('NuxtSeo')
+
 // Scroll function
 const scrollToProjects = () => {
   const projectsSection = document.getElementById('projects')

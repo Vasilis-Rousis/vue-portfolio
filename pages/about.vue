@@ -207,3 +207,7 @@
     </section>
   </div>
 </template>
+
+<script setup>
+defineOgImageComponent('NuxtSeo')
+</script>

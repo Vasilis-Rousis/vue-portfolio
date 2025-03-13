@@ -8,11 +8,22 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/color-mode',
     '@nuxt/image',
+    '@nuxtjs/seo',
   ],
+  site: {
+    name: 'Vasilis Rousis - Software Developer',
+    description:
+      'Software developer creating beautiful digital experiences with a focus on user-centered design and performance',
+    url: 'https://www.vasilis-rousis.com',
+    defaultLocale: 'en',
+  },
+  robots: {
+    enabled: true,
+  },
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
+    fallback: 'dark', // fallback value if not system preference found
   },
   shadcn: {
     prefix: '',

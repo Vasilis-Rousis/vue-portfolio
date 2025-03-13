@@ -224,6 +224,8 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 
+defineOgImageComponent('NuxtSeo')
+
 const form = reactive({
   name: '',
   email: '',
@@ -257,7 +259,6 @@ onMounted(() => {
       if (window.grecaptcha && window.grecaptcha.ready) {
         window.grecaptcha.ready(() => {
           clearInterval(recaptchaInterval)
-          console.log('reCAPTCHA ready')
         })
       }
     }, 100)
