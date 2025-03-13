@@ -62,4 +62,19 @@ export default defineNuxtConfig({
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     },
   },
+  // Add runtime config for environment variables
+  runtimeConfig: {
+    // Server-side environment variables
+    emailHost: process.env.EMAIL_HOST,
+    emailPort: process.env.EMAIL_PORT,
+    emailUser: process.env.EMAIL_USER,
+    emailPass: process.env.EMAIL_PASS,
+    emailSecure: process.env.EMAIL_SECURE,
+    emailRecipient: process.env.EMAIL_RECIPIENT,
+
+    // Public variables (if needed)
+    public: {
+      // Variables exposed to the client
+    },
+  },
 })

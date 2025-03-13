@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/html-self-closing -->
 <template>
   <div>
     <!-- Hero Section -->
@@ -24,12 +25,39 @@
             <Card class="border-0 shadow-lg">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
-                <CardDescription
-                  >Fill out the form below and I'll get back to you as soon as
-                  possible.</CardDescription
-                >
+                <CardDescription>
+                  Fill out the form below and I'll get back to you as soon as possible.
+                </CardDescription>
               </CardHeader>
               <CardContent>
+                <!-- Status message alert -->
+                <div
+                  v-if="formStatus.show"
+                  class="mb-6 p-4 rounded-md transition-all duration-300"
+                  :class="
+                    formStatus.isError
+                      ? 'bg-destructive/15 text-destructive'
+                      : 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                  "
+                >
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <Icon
+                        :name="formStatus.isError ? 'lucide:alert-circle' : 'lucide:check-circle'"
+                        class="h-5 w-5"
+                        :class="
+                          formStatus.isError
+                            ? 'text-destructive'
+                            : 'text-green-500 dark:text-green-400'
+                        "
+                      />
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium">{{ formStatus.message }}</p>
+                    </div>
+                  </div>
+                </div>
+
                 <form class="space-y-6" @submit.prevent="submitForm">
                   <div class="space-y-2">
                     <label for="name" class="text-sm font-medium">Name</label>
@@ -193,22 +221,57 @@ const form = reactive({
 })
 
 const isSubmitting = ref(false)
+const formStatus = ref({
+  show: false,
+  isError: false,
+  message: '',
+})
 
-function submitForm() {
+async function submitForm() {
   isSubmitting.value = true
+  formStatus.value.show = false
 
-  // Simulate form submission
-  setTimeout(() => {
-    // Reset form
-    form.name = ''
-    form.email = ''
-    form.subject = ''
-    form.message = ''
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    })
 
+    const result = await response.json()
+
+    if (response.ok) {
+      // Reset form
+      form.name = ''
+      form.email = ''
+      form.subject = ''
+      form.message = ''
+
+      // Show success message
+      formStatus.value = {
+        show: true,
+        isError: false,
+        message: "Message sent successfully! I'll get back to you soon.",
+      }
+    } else {
+      throw new Error(result.error || 'Failed to send message')
+    }
+  } catch (error) {
+    console.error('Error sending message:', error)
+    formStatus.value = {
+      show: true,
+      isError: true,
+      message: `Failed to send message: ${error.message}`,
+    }
+  } finally {
     isSubmitting.value = false
 
-    // Show success message (you would implement a proper notification system)
-    alert('Message sent successfully!')
-  }, 1500)
+    // Hide status message after 5 seconds
+    setTimeout(() => {
+      formStatus.value.show = false
+    }, 5000)
+  }
 }
 </script>
