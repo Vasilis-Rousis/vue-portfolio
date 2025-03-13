@@ -19,6 +19,8 @@ export default defineNuxtConfig({
   },
   robots: {
     enabled: true,
+    allow: ['/'],
+    disallow: [], // Empty array to not disallow anything
   },
   colorMode: {
     classSuffix: '',
