@@ -65,9 +65,9 @@ export default defineNuxtConfig({
       link: [
         // Preload the hero image
         {
-          rel: 'preload',
           as: 'image',
           href: '/images/avatar.jpg',
+          type: 'image/jpeg',
         },
       ],
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
