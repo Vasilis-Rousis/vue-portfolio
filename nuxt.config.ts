@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     domains: [],
 
     // Set default image provider
-    provider: 'ipx',
+    provider: 'vercel',
 
     // Enable image preloading for critical images
     preload: true,
