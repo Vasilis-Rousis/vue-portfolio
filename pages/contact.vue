@@ -64,10 +64,13 @@
                       id="name"
                       v-model="form.name"
                       type="text"
-                      required
-                      class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      :class="errors.name ? 'border-destructive' : 'border-input'"
                       placeholder="Your name"
                     />
+                    <p v-if="errors.name" class="text-xs text-destructive mt-1">
+                      {{ errors.name }}
+                    </p>
                   </div>
 
                   <div class="space-y-2">
@@ -76,10 +79,13 @@
                       id="email"
                       v-model="form.email"
                       type="email"
-                      required
-                      class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      :class="errors.email ? 'border-destructive' : 'border-input'"
                       placeholder="your.email@example.com"
                     />
+                    <p v-if="errors.email" class="text-xs text-destructive mt-1">
+                      {{ errors.email }}
+                    </p>
                   </div>
 
                   <div class="space-y-2">
@@ -88,10 +94,13 @@
                       id="subject"
                       v-model="form.subject"
                       type="text"
-                      required
-                      class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      :class="errors.subject ? 'border-destructive' : 'border-input'"
                       placeholder="What's this regarding?"
                     />
+                    <p v-if="errors.subject" class="text-xs text-destructive mt-1">
+                      {{ errors.subject }}
+                    </p>
                   </div>
 
                   <div class="space-y-2">
@@ -99,11 +108,14 @@
                     <textarea
                       id="message"
                       v-model="form.message"
-                      required
                       rows="5"
-                      class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex w-full rounded-md border bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      :class="errors.message ? 'border-destructive' : 'border-input'"
                       placeholder="Your message here..."
                     />
+                    <p v-if="errors.message" class="text-xs text-destructive mt-1">
+                      {{ errors.message }}
+                    </p>
                   </div>
 
                   <Button type="submit" class="w-full" :disabled="isSubmitting">
@@ -209,7 +221,6 @@
   </div>
 </template>
 
-<!-- Script section updates for your contact.vue -->
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 
@@ -218,7 +229,14 @@ const form = reactive({
   email: '',
   subject: '',
   message: '',
-  recaptchaToken: '', // New field for reCAPTCHA token
+  recaptchaToken: '',
+})
+
+const errors = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
 })
 
 const config = useRuntimeConfig()
@@ -229,10 +247,11 @@ const formStatus = ref({
   message: '',
 })
 
+// Email validation regex
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+
 // Initialize reCAPTCHA
 onMounted(() => {
-  // Make sure window.grecaptcha is available
-  // (it will be available after the script loads)
   if (import.meta.client) {
     const recaptchaInterval = setInterval(() => {
       if (window.grecaptcha && window.grecaptcha.ready) {
@@ -263,7 +282,60 @@ const getRecaptchaToken = async () => {
   }
 }
 
+function validateForm() {
+  let isValid = true
+  errors.value = { name: '', email: '', subject: '', message: '' }
+
+  // Name validation
+  if (!form.name.trim()) {
+    errors.value.name = 'Name is required'
+    isValid = false
+  } else if (form.name.trim().length < 2) {
+    errors.value.name = 'Name must be at least 2 characters'
+    isValid = false
+  }
+
+  // Email validation
+  if (!form.email.trim()) {
+    errors.value.email = 'Email is required'
+    isValid = false
+  } else if (!emailRegex.test(form.email)) {
+    errors.value.email = 'Please enter a valid email address'
+    isValid = false
+  }
+
+  // Subject validation
+  if (!form.subject.trim()) {
+    errors.value.subject = 'Subject is required'
+    isValid = false
+  } else if (form.subject.trim().length < 3) {
+    errors.value.subject = 'Subject must be at least 3 characters'
+    isValid = false
+  }
+
+  // Message validation
+  if (!form.message.trim()) {
+    errors.value.message = 'Message is required'
+    isValid = false
+  } else if (form.message.trim().length < 10) {
+    errors.value.message = 'Message must be at least 10 characters'
+    isValid = false
+  }
+
+  return isValid
+}
+
 async function submitForm() {
+  // First validate the form
+  if (!validateForm()) {
+    formStatus.value = {
+      show: true,
+      isError: true,
+      message: 'Please correct the errors in the form',
+    }
+    return
+  }
+
   isSubmitting.value = true
   formStatus.value.show = false
 
@@ -272,7 +344,7 @@ async function submitForm() {
     form.recaptchaToken = await getRecaptchaToken()
 
     if (!form.recaptchaToken) {
-      throw new Error('Failed to get reCAPTCHA token. Please try again.')
+      throw new Error('Failed to verify you are human. Please refresh and try again.')
     }
 
     const response = await fetch('/api/contact', {
@@ -286,10 +358,17 @@ async function submitForm() {
     const result = await response.json()
 
     if (!response.ok) {
+      // Enhanced error handling based on status codes
       if (response.status === 429) {
-        throw new Error('Too many requests. Please try again later.')
+        const retryAfter = response.headers.get('Retry-After') || 60
+        throw new Error(`Message limit reached. Please try again in ${retryAfter} seconds.`)
+      } else if (response.status === 400) {
+        throw new Error(result.error || 'Invalid form data. Please check your inputs.')
+      } else if (response.status === 403) {
+        throw new Error('Verification failed. Please refresh the page and try again.')
+      } else {
+        throw new Error(result.error || 'Something went wrong. Please try again later.')
       }
-      throw new Error(result.error || 'Failed to send message')
     }
 
     // Reset form
@@ -310,15 +389,17 @@ async function submitForm() {
     formStatus.value = {
       show: true,
       isError: true,
-      message: `Failed to send message: ${error.message}`,
+      message: error.message || 'Failed to send message. Please try again later.',
     }
   } finally {
     isSubmitting.value = false
 
-    // Hide status message after 5 seconds
-    setTimeout(() => {
-      formStatus.value.show = false
-    }, 5000)
+    // Hide success message after 5 seconds, but keep error messages visible
+    if (!formStatus.value.isError) {
+      setTimeout(() => {
+        formStatus.value.show = false
+      }, 5000)
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 // server/utils/rateLimit.ts
 import type { H3Event } from 'h3'
-import { EventHandler, createError, getRequestIP } from 'h3'
+import { createError, getRequestIP } from 'h3'
 
 interface RateLimitOptions {
   maxRequests: number

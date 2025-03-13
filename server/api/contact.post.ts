@@ -25,11 +25,41 @@ export default defineEventHandler(async (event) => {
     const body = await readBody<ContactFormData>(event)
     const { name, email, subject, message, recaptchaToken } = body
 
-    // Validate input
-    if (!name || !email || !subject || !message) {
+    // Enhanced input validation
+    const validationErrors: Record<string, string> = {}
+
+    if (!name || name.trim().length < 2) {
+      validationErrors.name = !name ? 'Name is required' : 'Name must be at least 2 characters'
+    }
+
+    // Email validation with regex
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+    if (!email) {
+      validationErrors.email = 'Email is required'
+    } else if (!emailRegex.test(email)) {
+      validationErrors.email = 'Please provide a valid email address'
+    }
+
+    if (!subject || subject.trim().length < 3) {
+      validationErrors.subject = !subject
+        ? 'Subject is required'
+        : 'Subject must be at least 3 characters'
+    }
+
+    if (!message || message.trim().length < 10) {
+      validationErrors.message = !message
+        ? 'Message is required'
+        : 'Message must be at least 10 characters'
+    }
+
+    // Return validation errors if any
+    if (Object.keys(validationErrors).length > 0) {
       return {
         status: 400,
-        body: { error: 'Missing required fields' },
+        body: {
+          error: 'Validation failed',
+          details: validationErrors,
+        },
       }
     }
 
@@ -41,6 +71,11 @@ export default defineEventHandler(async (event) => {
           status: 403,
           body: { error: 'CAPTCHA verification failed. Please try again.' },
         }
+      }
+    } else if (config.recaptchaSecretKey && !recaptchaToken) {
+      return {
+        status: 403,
+        body: { error: 'CAPTCHA verification required. Please refresh and try again.' },
       }
     }
 
@@ -113,12 +148,23 @@ export default defineEventHandler(async (event) => {
       error.statusCode === 429
     ) {
       const rateLimitError = error as RateLimitError
+      const retryAfter = rateLimitError.headers?.['retry-after'] || 60
+      const retrySeconds = typeof retryAfter === 'string' ? parseInt(retryAfter) : retryAfter
+
+      let retryMessage = 'Please try again later'
+      if (retrySeconds > 60) {
+        const minutes = Math.ceil(retrySeconds / 60)
+        retryMessage = `Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}`
+      } else {
+        retryMessage = `Please try again in ${retrySeconds} second${retrySeconds > 1 ? 's' : ''}`
+      }
+
       return {
         status: 429,
         body: {
           error: 'Too many requests',
-          details: rateLimitError.message || 'Please try again later',
-          retryAfter: rateLimitError.headers?.['retry-after'] || 60,
+          details: retryMessage,
+          retryAfter: retrySeconds,
         },
       }
     }
@@ -166,7 +212,9 @@ async function verifyRecaptchaToken(token: string, secretKey: string): Promise<b
     const data: RecaptchaResponse = await response.json()
 
     // For reCAPTCHA v3, also check the score (0.0 to 1.0, where 1.0 is very likely a good interaction)
-    return data.success === true && (data.score === undefined || data.score >= 0.5)
+    // You can adjust the threshold based on your security needs
+    const threshold = 0.5 // Default threshold
+    return data.success === true && (data.score === undefined || data.score >= threshold)
   } catch (error) {
     console.error('reCAPTCHA verification error:', error)
     return false
