@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/html-self-closing -->
 <template>
   <div>
     <!-- Hero Section -->
@@ -210,16 +209,19 @@
   </div>
 </template>
 
+<!-- Script section updates for your contact.vue -->
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 
 const form = reactive({
   name: '',
   email: '',
   subject: '',
   message: '',
+  recaptchaToken: '', // New field for reCAPTCHA token
 })
 
+const config = useRuntimeConfig()
 const isSubmitting = ref(false)
 const formStatus = ref({
   show: false,
@@ -227,11 +229,52 @@ const formStatus = ref({
   message: '',
 })
 
+// Initialize reCAPTCHA
+onMounted(() => {
+  // Make sure window.grecaptcha is available
+  // (it will be available after the script loads)
+  if (import.meta.client) {
+    const recaptchaInterval = setInterval(() => {
+      if (window.grecaptcha && window.grecaptcha.ready) {
+        window.grecaptcha.ready(() => {
+          clearInterval(recaptchaInterval)
+          console.log('reCAPTCHA ready')
+        })
+      }
+    }, 100)
+  }
+})
+
+// Get reCAPTCHA token
+const getRecaptchaToken = async () => {
+  if (!import.meta.client || !window.grecaptcha) {
+    console.error('reCAPTCHA not loaded')
+    return null
+  }
+
+  try {
+    const token = await window.grecaptcha.execute(config.public.recaptchaSiteKey, {
+      action: 'submit',
+    })
+    return token
+  } catch (error) {
+    console.error('Error getting reCAPTCHA token:', error)
+    return null
+  }
+}
+
 async function submitForm() {
   isSubmitting.value = true
   formStatus.value.show = false
 
   try {
+    // Get reCAPTCHA token before submitting
+    form.recaptchaToken = await getRecaptchaToken()
+
+    if (!form.recaptchaToken) {
+      throw new Error('Failed to get reCAPTCHA token. Please try again.')
+    }
+
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -242,21 +285,25 @@ async function submitForm() {
 
     const result = await response.json()
 
-    if (response.ok) {
-      // Reset form
-      form.name = ''
-      form.email = ''
-      form.subject = ''
-      form.message = ''
-
-      // Show success message
-      formStatus.value = {
-        show: true,
-        isError: false,
-        message: "Message sent successfully! I'll get back to you soon.",
+    if (!response.ok) {
+      if (response.status === 429) {
+        throw new Error('Too many requests. Please try again later.')
       }
-    } else {
       throw new Error(result.error || 'Failed to send message')
+    }
+
+    // Reset form
+    form.name = ''
+    form.email = ''
+    form.subject = ''
+    form.message = ''
+    form.recaptchaToken = ''
+
+    // Show success message
+    formStatus.value = {
+      show: true,
+      isError: false,
+      message: "Message sent successfully! I'll get back to you soon.",
     }
   } catch (error) {
     console.error('Error sending message:', error)

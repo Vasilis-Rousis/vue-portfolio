@@ -60,6 +60,13 @@ export default defineNuxtConfig({
         },
       ],
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      script: [
+        {
+          src: `https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`,
+          async: true,
+          defer: true,
+        },
+      ],
     },
   },
   // Add runtime config for environment variables
@@ -71,10 +78,12 @@ export default defineNuxtConfig({
     emailPass: process.env.EMAIL_PASS,
     emailSecure: process.env.EMAIL_SECURE,
     emailRecipient: process.env.EMAIL_RECIPIENT,
+    recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
 
     // Public variables (if needed)
     public: {
       // Variables exposed to the client
+      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     },
   },
 })
