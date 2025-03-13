@@ -110,8 +110,8 @@
                   <div>
                     <h3 class="font-medium">Email</h3>
                     <p class="text-sm text-muted-foreground">
-                      <a href="mailto:your.email@example.com" class="hover-underline"
-                        >your.email@example.com</a
+                      <a href="mailto:vasileios.rousis1@gmail.com" class="hover-underline"
+                        >vasileios.rousis1@gmail.com</a
                       >
                     </p>
                   </div>
@@ -126,7 +126,7 @@
                   <div>
                     <h3 class="font-medium">Phone</h3>
                     <p class="text-sm text-muted-foreground">
-                      <a href="tel:+1234567890" class="hover-underline">+1 (234) 567-890</a>
+                      <a href="tel:+306971596684" class="hover-underline">+306971596684</a>
                     </p>
                   </div>
                 </div>
@@ -139,7 +139,7 @@
                   </div>
                   <div>
                     <h3 class="font-medium">Location</h3>
-                    <p class="text-sm text-muted-foreground">San Francisco, CA</p>
+                    <p class="text-sm text-muted-foreground">Thessaloniki, Greece</p>
                   </div>
                 </div>
               </div>
@@ -150,71 +150,31 @@
               <h2 class="text-2xl font-bold tracking-tight mb-4">Connect With Me</h2>
               <div class="flex gap-4">
                 <a
-                  href="#"
+                  href="https://github.com/Vasilis-Rousis"
                   class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Icon name="lucide:github" class="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/vasilis-rousis/"
                   class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Icon name="lucide:linkedin" class="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/vasilis.r/"
                   class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
-                  <Icon name="lucide:twitter" class="h-5 w-5" />
+                  <Icon name="lucide:facebook" class="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/vasilis_rousis/"
                   class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   <Icon name="lucide:instagram" class="h-5 w-5" />
                 </a>
               </div>
             </div>
-
-            <!-- FAQ -->
-            <div>
-              <h2 class="text-2xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
-              <div class="space-y-4">
-                <div>
-                  <h3 class="font-medium">What's your typical response time?</h3>
-                  <p class="text-sm text-muted-foreground">
-                    I usually respond within 24 hours during business days.
-                  </p>
-                </div>
-                <div>
-                  <h3 class="font-medium">Do you offer remote services?</h3>
-                  <p class="text-sm text-muted-foreground">
-                    Yes, I work remotely with clients worldwide.
-                  </p>
-                </div>
-                <div>
-                  <h3 class="font-medium">What's your pricing structure?</h3>
-                  <p class="text-sm text-muted-foreground">
-                    Pricing varies depending on project scope and requirements. Contact me for a
-                    custom quote.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Map Section (optional) -->
-    <section class="py-12 md:py-16 bg-muted/30">
-      <div class="container px-4 md:px-6">
-        <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
-          <!-- Replace with actual map or image -->
-          <div class="w-full h-full flex items-center justify-center bg-muted">
-            <p class="text-muted-foreground">
-              Map placeholder (integrate Google Maps or other map service here)
-            </p>
           </div>
         </div>
       </div>

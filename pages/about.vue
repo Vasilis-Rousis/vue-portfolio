@@ -23,29 +23,28 @@
           <div class="relative">
             <div class="absolute -inset-4 rounded-xl bg-primary/10 blur-xl opacity-70" />
             <div class="relative aspect-square overflow-hidden rounded-xl">
-              <NuxtImg src="/your-photo.jpg" alt="Your Name" class="object-cover w-full h-full" />
+              <NuxtImg src="/images/hero.jpeg" alt="Your Name" class="object-cover w-full h-full" />
             </div>
           </div>
           <div class="space-y-6">
             <h2 class="text-3xl font-bold tracking-tight">My Journey</h2>
             <div class="space-y-4 text-muted-foreground">
               <p>
-                Hello! I'm <span class="font-medium text-foreground">Your Name</span>, a passionate
-                front-end developer with a deep love for creating intuitive and beautiful user
+                Hello! I'm <span class="font-medium text-foreground">Vasilis</span>, a passionate
+                software developer with a deep love for creating intuitive and beautiful user
                 experiences.
               </p>
               <p>
-                I started my journey into web development in 2018 when I built my first website.
-                Since then, I've been constantly learning and improving my skills, working with
-                various technologies and frameworks.
+                I started my journey into web development in 2019. Since then, I've been constantly
+                learning and improving my skills, working with various technologies and frameworks.
               </p>
               <p>
-                With a background in design and a strong foundation in development, I bring a unique
-                perspective that bridges the gap between aesthetics and functionality.
+                With a background in mathematics and a strong foundation in development, I bring a
+                unique perspective that bridges the gap between aesthetics and functionality.
               </p>
               <p>
-                When I'm not coding, you can find me hiking in nature, reading science fiction, or
-                experimenting with new recipes in the kitchen.
+                When I'm not coding, you can find me being terminally online, gaming, hiking in
+                nature, working out, or binge-eating at a local tavern.
               </p>
             </div>
           </div>
@@ -68,42 +67,25 @@
               <div
                 class="absolute left-0 top-0 h-6 w-6 -translate-x-1/2 rounded-full border bg-background"
               />
-              <h3 class="font-semibold text-xl mb-1">Senior Front-end Developer</h3>
-              <p class="text-sm text-muted-foreground mb-4">Company Name • 2021 - Present</p>
-              <p class="text-muted-foreground">
-                Led the development of the company's flagship product, implementing modern front-end
-                architectures and best practices. Collaborated with UX/UI designers to create
-                responsive interfaces and improved performance by 40%.
-              </p>
-            </div>
-
-            <div
-              class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-0.5 before:bg-border"
-            >
-              <div
-                class="absolute left-0 top-0 h-6 w-6 -translate-x-1/2 rounded-full border bg-background"
-              />
-              <h3 class="font-semibold text-xl mb-1">Front-end Developer</h3>
-              <p class="text-sm text-muted-foreground mb-4">Another Company • 2018 - 2021</p>
-              <p class="text-muted-foreground">
-                Developed and maintained multiple client websites using Vue.js and Nuxt. Implemented
-                responsive designs and optimized user experiences across desktop and mobile
-                platforms.
-              </p>
-            </div>
-
-            <div
-              class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-0.5 before:bg-border"
-            >
-              <div
-                class="absolute left-0 top-0 h-6 w-6 -translate-x-1/2 rounded-full border bg-background"
-              />
-              <h3 class="font-semibold text-xl mb-1">Web Design Intern</h3>
-              <p class="text-sm text-muted-foreground mb-4">Design Studio • 2017 - 2018</p>
-              <p class="text-muted-foreground">
-                Assisted in the design and development of client websites. Gained experience with
-                HTML, CSS, and JavaScript fundamentals.
-              </p>
+              <h3 class="font-semibold text-xl mb-1">Software Developer</h3>
+              <p class="text-sm text-muted-foreground mb-4">Deloitte • 2022 - Present</p>
+              <ul class="space-y-2 text-muted-foreground list-disc list-outside ml-5">
+                <li>
+                  Developed and maintained web applications using various tools and frameworks in
+                  multiple projects
+                </li>
+                <li>
+                  Collaborated with cross-functional teams to design and implement innovative
+                  features
+                </li>
+                <li>
+                  Ensured high levels of client satisfaction through tailored software development
+                </li>
+                <li>
+                  Led and coordinated team efforts, overseeing daily client communications and
+                  ensuring project alignment with client expectations.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -163,18 +145,18 @@
 
           <Card class="card-hover shadow-sm">
             <CardHeader>
-              <CardTitle>Design Skills</CardTitle>
-              <CardDescription>Tools and concepts I utilize for design</CardDescription>
+              <CardTitle>Functional Skills</CardTitle>
+              <CardDescription>Design, business tools and soft skills</CardDescription>
             </CardHeader>
             <CardContent>
               <div class="grid grid-cols-2 gap-4">
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Figma</span>
+                  <span>Jira</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Adobe XD</span>
+                  <span>Confluence</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
@@ -186,19 +168,19 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Prototyping</span>
+                  <span>Agile</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Color Theory</span>
+                  <span>Effective communication</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Typography</span>
+                  <span>Teamwork</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Design Systems</span>
+                  <span>Figma</span>
                 </div>
               </div>
             </CardContent>
@@ -215,7 +197,8 @@
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to Work Together?</h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-          I'm always open to discussing product design work or partnership opportunities.
+          I'm open to exciting opportunities where I can contribute my skills and grow with
+          innovative companies.
         </p>
         <Button variant="secondary" size="lg" class="font-medium" as-child>
           <NuxtLink to="/contact">Get in Touch</NuxtLink>

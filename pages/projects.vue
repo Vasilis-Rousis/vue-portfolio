@@ -38,12 +38,6 @@
           >
             Mobile
           </Button>
-          <Button
-            :variant="activeFilter === 'design' ? 'default' : 'outline'"
-            @click="activeFilter = 'design'"
-          >
-            Design
-          </Button>
         </div>
       </div>
     </section>
@@ -57,16 +51,19 @@
               class="overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 card-hover"
             >
               <div class="relative">
-                <AspectRatio :ratio="16 / 9">
+                <AspectRatio :ratio="4 / 3" class="overflow-hidden">
                   <NuxtImg
                     :src="project.image"
                     :alt="project.title"
-                    width="600"
-                    height="338"
-                    placeholder
+                    width="400"
+                    height="300"
                     format="webp"
+                    placeholder
                     loading="lazy"
-                    class="object-cover w-full transition-transform duration-500 group-hover:scale-105"
+                    class="object-cover w-full h-full"
+                  />
+                  <div
+                    class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/100 to-transparent"
                   />
                 </AspectRatio>
                 <div
@@ -148,69 +145,38 @@ const activeFilter = ref('all')
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A fully responsive e-commerce platform built with Vue 3 and Node.js',
+    title: 'WonderGuide',
+    description:
+      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
+    image: '/images/wonderguide.jpg',
+    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
+    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
     longDescription:
-      'This project involved creating a comprehensive e-commerce solution from scratch. It includes user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Built with Vue 3, Nuxt.js, Node.js, and MongoDB.',
-    image: '/projects/project1.jpg',
-    tags: ['Vue 3', 'Node.js', 'MongoDB'],
+      'WonderGuide is an innovative virtual travel assistant that leverages the ChatGPT API to create personalized travel itineraries. Users can specify their destination, travel duration, interests, and budget, and the app generates detailed day-by-day itineraries with recommendations for attractions, restaurants, and activities. Built with Nuxt 3 for the frontend and Supabase for backend services including user authentication and data storage. The integration with ChatGPT API enables natural language interaction and tailored travel suggestions that feel like recommendations from a knowledgeable local guide. This project showcases my skills in API integration, modern frontend development, and creating intuitive user experiences.',
     category: 'web',
-    link: '#',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A productivity app with drag-and-drop functionality',
+    title: 'Personal Portfolio',
+    description:
+      'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
+    image: '/images/portfolio-website.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Vite'],
+    link: 'https://github.com/Vasilis-Rousis/vue-portfolio',
     longDescription:
-      'A powerful task management application designed to boost productivity. Features include task categories, due dates, drag-and-drop organization, progress tracking, and data visualization. Built with Vue.js, Firebase, and Tailwind CSS.',
-    image: '/projects/project2.jpg',
-    tags: ['Vue 3', 'Firebase', 'Tailwind CSS'],
+      'This portfolio website serves as a digital showcase of my development skills and professional journey. Built with Nuxt 3 and styled with Tailwind CSS, it features a responsive design that looks great on all devices. The site includes sections for my projects, skills, experience, and contact information, all optimized for performance using Vite as the build tool. I implemented modern UI components with smooth animations and transitions to create an engaging user experience. The project demonstrates my proficiency in frontend development, UI/UX design principles, and ability to create clean, maintainable code. The site also serves as a practical example of my approach to building modern web applications with a focus on performance and accessibility.',
     category: 'web',
-    link: '#',
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'Real-time weather information with interactive charts',
+    title: 'Warehouse Management App',
+    description: 'Android app for managing warehouse inventory and tracking shipments',
+    image: '/images/warehouse-management.jpg',
+    tags: ['Java', 'SQLite', 'OkHttp3'],
+    link: 'https://github.com/Vasilis-Rousis/warehouse-management-app',
     longDescription:
-      'An interactive weather dashboard that provides real-time weather data and forecasts. Features include location search, interactive charts, historical data comparison, and severe weather alerts. Built with Vue.js, Chart.js, and a Weather API.',
-    image: '/projects/project3.jpg',
-    tags: ['Vue 3', 'API Integration', 'Chart.js'],
-    category: 'web',
-    link: '#',
-  },
-  {
-    id: 4,
-    title: 'Fitness Tracking Mobile App',
-    description: 'A mobile app for tracking workouts and nutrition',
-    longDescription:
-      'A comprehensive fitness tracking mobile application that helps users monitor their workouts, nutrition, and overall health. Features include workout plans, progress tracking, nutrition logging, and personalized recommendations.',
-    image: '/projects/project4.jpg',
-    tags: ['React Native', 'Firebase', 'Health API'],
+      'The Warehouse Management App is a comprehensive Android application developed to streamline inventory management and shipment tracking in warehouse environments. Built with Java and utilizing SQLite for local data storage, the app enables warehouse staff to scan barcodes, track inventory levels, manage product locations, and process incoming and outgoing shipments. OkHttp3 is used to communicate with backend systems, ensuring real-time data synchronization. The app features an offline mode that allows continued operation during network outages, with automatic syncing when connectivity is restored. Key functionalities include inventory auditing, shipment status updates, low stock alerts, and comprehensive reporting capabilities. This project demonstrates my ability to develop mobile solutions for complex business requirements.',
     category: 'mobile',
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'Financial Dashboard',
-    description: 'Interactive financial analytics platform',
-    longDescription:
-      'A sophisticated financial dashboard providing comprehensive analytics and visualization tools for personal and business finance management. Includes expense tracking, budget planning, investment monitoring, and financial goal setting.',
-    image: '/projects/project5.jpg',
-    tags: ['Vue', 'D3.js', 'Express'],
-    category: 'web',
-    link: '#',
-  },
-  {
-    id: 6,
-    title: 'Brand Identity Design',
-    description: 'Complete brand identity for a local business',
-    longDescription:
-      'A complete brand identity design project for a local cafe, including logo design, color palette, typography selection, brand guidelines, packaging design, and marketing materials. Created using Adobe Creative Suite.',
-    image: '/projects/project6.jpg',
-    tags: ['Branding', 'Logo Design', 'Typography'],
-    category: 'design',
-    link: '#',
   },
 ]
 

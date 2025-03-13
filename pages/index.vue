@@ -56,7 +56,7 @@
               />
               <Avatar class="h-72 w-72 border-4 border-white dark:border-gray-950 relative">
                 <AvatarImage
-                  src="/your-photo.jpg"
+                  src="/images/avatar.jpg"
                   alt="Your Name"
                   width="288"
                   height="288"
@@ -291,11 +291,11 @@
     <section class="py-16 md:py-24 bg-gradient-to-br from-primary/90 to-violet-600/90 text-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl mb-4">
-          Ready to Start Your Project?
+          Looking for a Developer to Level Up Your Team?
         </h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-          Let's work together to bring your vision to life with stunning design and flawless
-          functionality.
+          I bring technical expertise, creative problem-solving, and collaborative energy to every
+          project I work on.
         </p>
         <Button
           size="lg"
@@ -329,26 +329,28 @@ const scrollToProjects = () => {
 const featuredProjects = [
   {
     id: 1,
-    title: 'E-commerce Website',
-    description: 'A fully responsive e-commerce platform built with Vue 3 and Node.js',
-    image: 'warehouse-management.jpg',
-    tags: ['Vue 3', 'Node.js', 'MongoDB'],
+    title: 'WonderGuide',
+    description:
+      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
+    image: '/images/wonderguide.jpg',
+    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: '/projects',
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A productivity app with drag-and-drop functionality',
-    image: 'wonderguide.jpg',
-    tags: ['Vue 3', 'Firebase', 'Tailwind CSS'],
+    title: 'Personal Portfolio',
+    description:
+      'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
+    image: '/images/portfolio-website.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Vite'],
     link: '/projects',
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'Real-time weather information with interactive charts',
-    image: 'portfolio-website.jpg',
-    tags: ['Vue 3', 'API Integration', 'Chart.js'],
+    title: 'Warehouse Management App',
+    description: 'Android app for managing warehouse inventory and tracking shipments',
+    image: '/images/warehouse-management.jpg',
+    tags: ['Java', 'SQLite', 'OkHttp3'],
     link: '/projects',
   },
 ]
@@ -367,37 +369,37 @@ const skillsWithIcons = [
 
 // Additional Skills
 const additionalSkills = [
-  'HTML5',
+  'Confluence',
   'CSS3',
   'Git',
   'RESTful APIs',
   'Node.js',
-  'Firebase',
+  'Supabase',
   'Figma',
-  'Adobe XD',
-  'Animation',
+  'Adobe Experience Manager',
+  'Jira',
   'Performance Optimization',
 ]
 
 // Certifications Data
 const certifications = [
   {
-    name: 'Advanced Vue.js Development',
-    issuer: 'Vue Mastery',
-    date: 'March 2024',
+    name: 'Adobe Certified Expert - Adobe Experience Manager Sites Developer',
+    issuer: 'Adobe',
+    date: 'January 2024',
     description:
-      'Comprehensive certification in advanced Vue.js development techniques, including state management, performance optimization, and component architecture.',
+      'The Adobe Experience Manager Sites Developer certification is the industry-recognized validation of ones proficiency in, and successful implementation of Adobe Experience Manager Developer',
     icon: 'lucide:badge-check',
-    link: '#',
+    link: 'https://www.credly.com/badges/90da3cef-7f49-4d77-945a-f4dc3a5cec91/linked_in_profile',
   },
   {
-    name: 'UI/UX Design Professional',
-    issuer: 'Design Academy',
-    date: 'November 2023',
+    name: 'Adobe Certified Expert - Adobe Experience Manager Sites Business Practitioner',
+    issuer: 'Adobe',
+    date: 'December 2022',
     description:
-      'Professional certification in user interface and experience design, covering design systems, usability testing, and creating accessible digital experiences.',
-    icon: 'lucide:layout-dashboard',
-    link: '#',
+      'The  Adobe Experience Manager Sites Business Practitioner certification is the industry-recognized validation of ones proficiency in Adobe Experience Manager. This certification requires in-depth knowledge of working with the AEM web content management capabilities and mobile capabilities.',
+    icon: 'lucide:badge-check',
+    link: 'https://www.credly.com/badges/964e0337-98c5-43f0-a1e6-2e97a4e92122/linked_in_profile',
   },
 ]
 

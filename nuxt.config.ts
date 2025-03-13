@@ -56,7 +56,7 @@ export default defineNuxtConfig({
         {
           rel: 'preload',
           as: 'image',
-          href: '/your-photo.jpg',
+          href: '/images/avatar.jpg',
         },
       ],
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],

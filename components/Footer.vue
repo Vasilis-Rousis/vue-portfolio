@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="space-y-4">
-          <h3 class="font-semibold text-lg">Your Name</h3>
+          <h3 class="font-semibold text-lg">Vasilis Rousis</h3>
           <p class="text-sm text-muted-foreground max-w-xs">
             A passionate developer focused on creating beautiful, functional digital experiences.
           </p>
@@ -29,7 +29,7 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="#"
+                href="https://github.com/Vasilis-Rousis"
                 class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 <Icon name="lucide:github" class="h-4 w-4" />
@@ -38,7 +38,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/vasilis-rousis/"
                 class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 <Icon name="lucide:linkedin" class="h-4 w-4" />
@@ -47,11 +47,20 @@
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.facebook.com/vasilis.r/"
                 class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
-                <Icon name="lucide:twitter" class="h-4 w-4" />
-                Twitter
+                <Icon name="lucide:facebook" class="h-4 w-4" />
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/vasilis_rousis/"
+                class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
+              >
+                <Icon name="lucide:instagram" class="h-4 w-4" />
+                Instagram
               </a>
             </li>
           </ul>
@@ -62,20 +71,20 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:vasileios.rousis1@gmail.com"
                 class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 <Icon name="lucide:mail" class="h-4 w-4" />
-                your.email@example.com
+                vasileios.rousis1@gmail.com
               </a>
             </li>
             <li>
               <a
-                href="tel:+1234567890"
+                href="tel:+306971596684"
                 class="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 <Icon name="lucide:phone" class="h-4 w-4" />
-                +1 (234) 567-890
+                +306971596684
               </a>
             </li>
           </ul>
@@ -84,7 +93,7 @@
 
       <div class="mt-8 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-center text-sm text-muted-foreground">
-          © {{ new Date().getFullYear() }} Your Name. All rights reserved.
+          © {{ new Date().getFullYear() }} Vasilis Rousis. All rights reserved.
         </p>
         <div>
           <Button variant="outline" size="sm" class="h-8" @click="scrollToTop">
