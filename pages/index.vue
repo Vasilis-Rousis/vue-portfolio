@@ -336,7 +336,7 @@ const featuredProjects = [
       'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
     image: '/images/wonderguide.jpg',
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
-    link: '/projects',
+    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
   },
   {
     id: 2,
@@ -345,7 +345,7 @@ const featuredProjects = [
       'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
     image: '/images/portfolio-website.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Vite'],
-    link: '/projects',
+    link: 'https://github.com/Vasilis-Rousis/vue-portfolio',
   },
   {
     id: 3,
@@ -353,7 +353,7 @@ const featuredProjects = [
     description: 'Android app for managing warehouse inventory and tracking shipments',
     image: '/images/warehouse-management.jpg',
     tags: ['Java', 'SQLite', 'OkHttp3'],
-    link: '/projects',
+    link: 'https://github.com/Vasilis-Rousis/warehouse-management-app',
   },
 ]
 
