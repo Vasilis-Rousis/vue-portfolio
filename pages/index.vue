@@ -55,7 +55,7 @@
                 class="absolute -inset-1 bg-gradient-to-r from-primary to-violet-500 rounded-full blur-md opacity-70 animate-pulse"
               />
               <Avatar class="h-72 w-72 border-4 border-white dark:border-gray-950 relative">
-                <AvatarImage
+                <NuxtImg
                   src="/images/avatar.jpg"
                   alt="Your Name"
                   width="288"
