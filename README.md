@@ -142,6 +142,8 @@ const projects = [
 
 ## 📱 Performance Optimizations
 
+![lighthouse](https://github.com/user-attachments/assets/3f32b8bf-f418-4b7c-8435-5105e67c99b5)
+
 - Image optimization with `@nuxt/image`
 - Lazy loading components and images
 - Code splitting
