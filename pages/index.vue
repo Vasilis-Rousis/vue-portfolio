@@ -62,6 +62,7 @@
                   height="288"
                   loading="eager"
                   fetchpriority="high"
+                  class="ml-4 mt-4"
                 />
                 <AvatarFallback
                   class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900"
