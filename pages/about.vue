@@ -199,7 +199,7 @@
     <div class="section-divider" />
 
     <!-- CTA Section -->
-    <section class="py-12 md:py-16 bg-primary text-primary-foreground">
+    <section class="py-12 md:py-16 bg-primary text-primary-foreground cta-section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to Work Together?</h2>
         <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">

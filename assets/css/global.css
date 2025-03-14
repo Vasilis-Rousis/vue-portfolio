@@ -198,3 +198,14 @@ img {
     padding: 0 2rem;
   }
 }
+
+/* Custom selection color for CTA section */
+.cta-section ::selection {
+  background: rgba(0, 0, 0, 0.2); /* Light dark background */
+  color: inherit; /* Keep the text color as is */
+}
+
+.dark .cta-section ::selection {
+  background: rgba(0, 0, 0, 0.4); /* Darker background for dark mode */
+  color: inherit; /* Keep the text color as is */
+}
