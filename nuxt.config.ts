@@ -101,13 +101,6 @@ export default defineNuxtConfig({
         },
       ],
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-      script: [
-        {
-          src: `https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`,
-          async: true,
-          defer: true,
-        },
-      ],
     },
   },
   // Add runtime config for environment variables

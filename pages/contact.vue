@@ -57,7 +57,7 @@
                   </div>
                 </div>
 
-                <form class="space-y-6" @submit.prevent="submitForm">
+                <form ref="contactForm" class="space-y-6" @submit.prevent="submitForm">
                   <div class="space-y-2">
                     <label for="name" class="text-sm font-medium">Name</label>
                     <input
@@ -112,6 +112,7 @@
                       class="flex w-full rounded-md border bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       :class="errors.message ? 'border-destructive' : 'border-input'"
                       placeholder="Your message here..."
+                      @focus="loadRecaptchaIfNeeded"
                     />
                     <p v-if="errors.message" class="text-xs text-destructive mt-1">
                       {{ errors.message }}
@@ -222,9 +223,14 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onUnmounted } from 'vue'
 
 defineOgImageComponent('NuxtSeo')
+
+const contactForm = ref(null)
+const recaptchaScriptLoaded = ref(false)
+const recaptchaScriptLoading = ref(false)
+const recaptchaScript = ref(null)
 
 const form = reactive({
   name: '',
@@ -252,27 +258,84 @@ const formStatus = ref({
 // Email validation regex
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
 
-// Initialize reCAPTCHA
-onMounted(() => {
-  if (import.meta.client) {
-    const recaptchaInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.ready) {
-        window.grecaptcha.ready(() => {
-          clearInterval(recaptchaInterval)
-        })
-      }
-    }, 100)
+// Load reCAPTCHA script dynamically when user interacts with form
+const loadRecaptchaIfNeeded = () => {
+  if (import.meta.client && !recaptchaScriptLoaded.value && !recaptchaScriptLoading.value) {
+    recaptchaScriptLoading.value = true
+
+    const siteKey = config.public.recaptchaSiteKey
+    if (!siteKey) {
+      console.error('reCAPTCHA site key is missing')
+      return
+    }
+
+    // Create the script element
+    recaptchaScript.value = document.createElement('script')
+
+    // Set attributes with privacy-oriented parameters
+    recaptchaScript.value.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
+    recaptchaScript.value.async = true
+    recaptchaScript.value.defer = true
+
+    // Add an event listener to know when the script is loaded
+    recaptchaScript.value.onload = () => {
+      recaptchaScriptLoaded.value = true
+      recaptchaScriptLoading.value = false
+    }
+
+    recaptchaScript.value.onerror = () => {
+      console.error('Failed to load reCAPTCHA script')
+      recaptchaScriptLoading.value = false
+    }
+
+    // Append the script to the document
+    document.head.appendChild(recaptchaScript.value)
+  }
+}
+
+// Clean up reCAPTCHA script when component is unmounted
+onUnmounted(() => {
+  if (
+    import.meta.client &&
+    recaptchaScript.value &&
+    document.head.contains(recaptchaScript.value)
+  ) {
+    document.head.removeChild(recaptchaScript.value)
   }
 })
 
 // Get reCAPTCHA token
 const getRecaptchaToken = async () => {
-  if (!import.meta.client || !window.grecaptcha) {
-    console.error('reCAPTCHA not loaded')
-    return null
+  if (!import.meta.client) return null
+
+  // If the script is not loaded yet, wait for it
+  if (!recaptchaScriptLoaded.value) {
+    loadRecaptchaIfNeeded()
+
+    // Wait for script to load with a timeout
+    let attempts = 0
+    while (!window.grecaptcha && attempts < 20) {
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      attempts++
+    }
+
+    if (!window.grecaptcha) {
+      console.error('reCAPTCHA failed to initialize')
+      return null
+    }
   }
 
   try {
+    // Ensure grecaptcha is ready
+    await new Promise((resolve) => {
+      if (window.grecaptcha.ready) {
+        window.grecaptcha.ready(resolve)
+      } else {
+        resolve()
+      }
+    })
+
+    // Execute and get token
     const token = await window.grecaptcha.execute(config.public.recaptchaSiteKey, {
       action: 'submit',
     })
@@ -341,13 +404,15 @@ async function submitForm() {
   formStatus.value.show = false
 
   try {
+    // Load reCAPTCHA if not loaded yet
+    if (!recaptchaScriptLoaded.value) {
+      loadRecaptchaIfNeeded()
+    }
+
     // Get reCAPTCHA token before submitting
     form.recaptchaToken = await getRecaptchaToken()
 
-    if (!form.recaptchaToken) {
-      throw new Error('Failed to verify you are human. Please refresh and try again.')
-    }
-
+    // Continue with submission even if token is null (fallback to server-side validation)
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
