@@ -23,7 +23,12 @@
           <div class="relative">
             <div class="absolute -inset-4 rounded-xl bg-primary/10 blur-xl opacity-70" />
             <div class="relative aspect-square overflow-hidden rounded-xl">
-              <NuxtImg src="/images/hero.jpeg" alt="Your Name" class="object-cover w-full h-full" />
+              <NuxtImg
+                src="/images/hero.jpg"
+                alt="Your Name"
+                class="object-cover w-full h-full"
+                width="360"
+              />
             </div>
           </div>
           <div class="space-y-6">
