@@ -14,8 +14,9 @@ export default defineNuxtConfig({
     name: 'Vasilis Rousis - Software Developer',
     description:
       'Software developer creating beautiful digital experiences with a focus on user-centered design and performance',
-    url: 'https://www.vasilis-rousis.com',
+    url: 'https://vasilis-rousis.com',
     defaultLocale: 'en',
+    currentLocale: 'en',
   },
   robots: {
     enabled: true,
