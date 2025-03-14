@@ -8,5 +8,10 @@
       <slot />
     </main>
     <Footer />
+    <SpeedInsights />
   </div>
 </template>
+
+<script setup>
+import { SpeedInsights } from '@vercel/speed-insights/vue'
+</script>
