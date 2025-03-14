@@ -27,7 +27,8 @@
                 src="/images/hero.jpg"
                 alt="Your Name"
                 class="object-cover w-full h-full"
-                width="360"
+                width="1200"
+                quality="90"
               />
             </div>
           </div>
@@ -177,7 +178,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Effective communication</span>
+                  <span>Communication</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
