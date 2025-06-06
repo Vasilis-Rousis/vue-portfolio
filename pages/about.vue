@@ -6,7 +6,9 @@
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
+          <h1
+            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+          >
             About Me
           </h1>
           <p class="text-xl text-muted-foreground">

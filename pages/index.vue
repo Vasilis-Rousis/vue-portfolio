@@ -269,9 +269,9 @@
           <Card
             v-for="(certification, index) in certifications"
             :key="index"
-            class="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300 h-full"
+            class="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300 h-128"
           >
-            <CardContent class="pt-6">
+            <CardContent class="pt-6 h-full flex flex-col">
               <div class="flex justify-center mb-4">
                 <div class="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
                   <Icon :name="certification.icon" class="h-8 w-8 text-primary" />
@@ -282,7 +282,11 @@
                 <p class="text-muted-foreground">{{ certification.issuer }}</p>
                 <Badge class="mt-2">{{ certification.date }}</Badge>
               </div>
-              <p class="text-center text-muted-foreground h-24">{{ certification.description }}</p>
+              <p
+                class="text-center text-muted-foreground flex-1 flex items-center justify-center px-2"
+              >
+                {{ certification.description }}
+              </p>
               <div class="mt-6 flex justify-center">
                 <Button variant="outline" size="sm" as-child>
                   <a
@@ -355,6 +359,7 @@ const featuredProjects = [
     image: '/images/wonderguide.jpg',
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
+    siteLink: '',
   },
   {
     id: 2,
@@ -364,6 +369,7 @@ const featuredProjects = [
     image: '/images/portfolio-website.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Vite'],
     link: 'https://github.com/Vasilis-Rousis/vue-portfolio',
+    siteLink: 'https://vasilis-rousis.com',
   },
   {
     id: 3,

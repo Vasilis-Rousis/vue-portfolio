@@ -5,7 +5,9 @@
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div class="container px-4 md:px-6 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
+          <h1
+            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+          >
             Get In Touch
           </h1>
           <p class="text-xl text-muted-foreground">
@@ -23,8 +25,8 @@
           <div>
             <Card class="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
-                <CardDescription>
+                <CardTitle class="text-2xl font-bold tracking-tight mb-4">Send a Message</CardTitle>
+                <CardDescription class="text-muted-foreground">
                   Fill out the form below and I'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
@@ -135,7 +137,7 @@
           <!-- Contact Info -->
           <div class="space-y-8">
             <div>
-              <h2 class="text-2xl font-bold tracking-tight mb-4">Contact Information</h2>
+              <h2 class="text-2xl font-bold tracking-tight mb-4 mt-7">Contact Information</h2>
               <p class="text-muted-foreground mb-6">
                 Feel free to reach out to me through any of the following methods:
               </p>

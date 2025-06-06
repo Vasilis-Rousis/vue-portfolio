@@ -6,7 +6,9 @@
       <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-3xl mx-auto text-center mb-12">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6">
+          <h1
+            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+          >
             My Projects
           </h1>
           <p class="text-xl text-muted-foreground">
@@ -164,6 +166,7 @@ const projects = [
     image: '/images/wonderguide.jpg',
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
+    siteLink: '',
     longDescription:
       'WonderGuide is an innovative virtual travel assistant that leverages the ChatGPT API to create personalized travel itineraries. Users can specify their destination, travel duration, interests, and budget, and the app generates detailed day-by-day itineraries with recommendations for attractions, restaurants, and activities. Built with Nuxt 3 for the frontend and Supabase for backend services including user authentication and data storage. The integration with ChatGPT API enables natural language interaction and tailored travel suggestions that feel like recommendations from a knowledgeable local guide. This project showcases my skills in API integration, modern frontend development, and creating intuitive user experiences.',
     category: 'web',
@@ -176,6 +179,7 @@ const projects = [
     image: '/images/portfolio-website.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Vite'],
     link: 'https://github.com/Vasilis-Rousis/vue-portfolio',
+    siteLink: 'https://vasilis-rousis.com',
     longDescription:
       'This portfolio website serves as a digital showcase of my development skills and professional journey. Built with Nuxt 3 and styled with Tailwind CSS, it features a responsive design that looks great on all devices. The site includes sections for my projects, skills, experience, and contact information, all optimized for performance using Vite as the build tool. I implemented modern UI components with smooth animations and transitions to create an engaging user experience. The project demonstrates my proficiency in frontend development, UI/UX design principles, and ability to create clean, maintainable code. The site also serves as a practical example of my approach to building modern web applications with a focus on performance and accessibility.',
     category: 'web',
@@ -200,6 +204,7 @@ const projects = [
     image: '/images/warehouse-management.jpg',
     tags: ['Java', 'SQLite', 'OkHttp3'],
     link: 'https://github.com/Vasilis-Rousis/warehouse-management-app',
+    siteLink: '',
     longDescription:
       'The Warehouse Management App is a comprehensive Android application developed to streamline inventory management and shipment tracking in warehouse environments. Built with Java and utilizing SQLite for local data storage, the app enables warehouse staff to scan barcodes, track inventory levels, manage product locations, and process incoming and outgoing shipments. OkHttp3 is used to communicate with backend systems, ensuring real-time data synchronization. The app features an offline mode that allows continued operation during network outages, with automatic syncing when connectivity is restored. Key functionalities include inventory auditing, shipment status updates, low stock alerts, and comprehensive reporting capabilities. This project demonstrates my ability to develop mobile solutions for complex business requirements.',
     category: 'mobile',
