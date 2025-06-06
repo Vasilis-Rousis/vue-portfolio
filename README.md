@@ -168,7 +168,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Vasilis Rousis - [vasileios.rousis1@gmail.com](mailto:vasileios.rousis1@gmail.com)
 
-Project Link: [https://github.com/Vasilis-Rousis/portfolio-website](https://github.com/Vasilis-Rousis/portfolio-website)
+Project Link: [https://github.com/Vasilis-Rousis/vue-portfolio](https://github.com/Vasilis-Rousis/vue-portfolio)
 
 ---
 
