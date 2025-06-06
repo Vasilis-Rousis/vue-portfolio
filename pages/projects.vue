@@ -171,6 +171,18 @@ const projects = [
   },
   {
     id: 3,
+    title: 'Weatheroo',
+    description:
+      'Modern weather app built with Nuxt 3, featuring interactive maps, geolocation, and Redis caching',
+    image: '/images/weatheroo.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
+    link: 'https://github.com/Vasilis-Rousis/weatheroo',
+    longDescription:
+      'A comprehensive weather application built with Nuxt 3 and TypeScript, showcasing full-stack development skills. Features include real-time weather data from OpenWeatherMap API, interactive weather maps powered by Leaflet, and intelligent geolocation services with user preference management. The app implements Redis-based caching and rate limiting for optimal performance, animated weather conditions, and responsive design using Tailwind CSS and shadcn/ui components. Additional features include dark/light mode theming, progressive loading states, local timezone detection, and a polished user experience with smooth transitions. Deployed with proper error handling, admin monitoring, and scalable architecture patterns.',
+    category: 'web',
+  },
+  {
+    id: 4,
     title: 'Warehouse Management App',
     description: 'Android app for managing warehouse inventory and tracking shipments',
     image: '/images/warehouse-management.jpg',

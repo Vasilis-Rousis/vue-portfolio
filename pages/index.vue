@@ -350,11 +350,12 @@ const featuredProjects = [
   },
   {
     id: 3,
-    title: 'Warehouse Management App',
-    description: 'Android app for managing warehouse inventory and tracking shipments',
-    image: '/images/warehouse-management.jpg',
-    tags: ['Java', 'SQLite', 'OkHttp3'],
-    link: 'https://github.com/Vasilis-Rousis/warehouse-management-app',
+    title: 'Weatheroo',
+    description:
+      'A modern weather dashboard built with Nuxt 3 featuring interactive maps, geolocation services, real-time animations, and Redis-powered caching',
+    image: '/images/weatheroo.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
+    link: 'https://github.com/Vasilis-Rousis/weatheroo',
   },
 ]
 
