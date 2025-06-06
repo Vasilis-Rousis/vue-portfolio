@@ -69,9 +69,20 @@
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
                 >
-                  <Button variant="secondary" size="sm" class="backdrop-blur-sm" as-child>
+                  <Button variant="secondary" size="sm" class="backdrop-blur-sm mr-1" as-child>
                     <a :href="project.link" target="_blank" rel="noopener noreferrer">
-                      View Project
+                      View Repo
+                    </a>
+                  </Button>
+                  <Button
+                    v-if="project.siteLink"
+                    variant="secondary"
+                    size="sm"
+                    class="backdrop-blur-sm"
+                    as-child
+                  >
+                    <a :href="project.siteLink" target="_blank" rel="noopener noreferrer">
+                      Visit Site
                     </a>
                   </Button>
                 </div>
@@ -79,7 +90,7 @@
               <CardHeader>
                 <div class="flex items-center justify-between">
                   <CardTitle class="text-xl font-bold">{{ project.title }}</CardTitle>
-                  <HoverCard>
+                  <HoverCard v-if="project.longDescription">
                     <HoverCardTrigger as-child>
                       <Button variant="ghost" size="icon" class="h-8 w-8">
                         <Icon name="lucide:info" class="h-4 w-4" />
@@ -177,6 +188,7 @@ const projects = [
     image: '/images/weatheroo.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
     link: 'https://github.com/Vasilis-Rousis/weatheroo',
+    siteLink: 'https://weatheroo-three.vercel.app',
     longDescription:
       'A comprehensive weather application built with Nuxt 3 and TypeScript, showcasing full-stack development skills. Features include real-time weather data from OpenWeatherMap API, interactive weather maps powered by Leaflet, and intelligent geolocation services with user preference management. The app implements Redis-based caching and rate limiting for optimal performance, animated weather conditions, and responsive design using Tailwind CSS and shadcn/ui components. Additional features include dark/light mode theming, progressive loading states, local timezone detection, and a polished user experience with smooth transitions. Deployed with proper error handling, admin monitoring, and scalable architecture patterns.',
     category: 'web',

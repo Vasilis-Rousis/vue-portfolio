@@ -5,7 +5,9 @@
     <section class="py-16 md:py-28 lg:py-36 relative overflow-hidden border-none">
       <div class="absolute inset-0 bg-grid-pattern opacity-5" />
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl" />
+      <div
+        class="absolute -bottom-24 -left-24 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl dark:bg-blue-600/20"
+      />
 
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
@@ -52,7 +54,7 @@
           <div class="flex justify-center">
             <div class="relative">
               <div
-                class="absolute -inset-1 bg-gradient-to-r from-primary to-violet-500 rounded-full blur-md opacity-70 animate-pulse"
+                class="absolute -inset-1 bg-gradient-to-r from-primary to-violet-500 rounded-full blur-md opacity-70 animate-pulse dark:to-blue-800"
               />
               <Avatar class="h-72 w-72 border-4 border-white dark:border-gray-950 relative">
                 <NuxtImg
@@ -132,7 +134,7 @@
 
             <!-- Content container -->
             <div class="flex-grow">
-              <CardHeader>
+              <CardHeader class="h-36">
                 <CardTitle class="text-xl font-bold">{{ project.title }}</CardTitle>
                 <CardDescription>{{ project.description }}</CardDescription>
               </CardHeader>
@@ -148,16 +150,31 @@
                   </Badge>
                 </div>
               </CardContent>
-              <CardFooter>
-                <Button variant="link" class="p-0 text-primary group-hover:underline" as-child>
-                  <NuxtLink :to="project.link" class="flex items-center">
-                    View Project
+              <CardFooter class="flex flex-col items-start space-y-2">
+                <div v-if="project.siteLink" class="group/site">
+                  <NuxtLink
+                    :to="project.siteLink"
+                    class="flex items-center p-0 text-primary group-hover/site:underline transition-colors"
+                  >
+                    Visit Site
                     <Icon
                       name="lucide:arrow-right"
-                      class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                      class="ml-2 h-4 w-4 transition-transform group-hover/site:translate-x-1"
                     />
                   </NuxtLink>
-                </Button>
+                </div>
+                <div class="group/repo">
+                  <NuxtLink
+                    :to="project.link"
+                    class="flex items-center p-0 text-primary group-hover/repo:underline transition-colors"
+                  >
+                    View Repo
+                    <Icon
+                      name="lucide:arrow-right"
+                      class="ml-2 h-4 w-4 transition-transform group-hover/repo:translate-x-1"
+                    />
+                  </NuxtLink>
+                </div>
               </CardFooter>
             </div>
           </Card>
@@ -265,7 +282,7 @@
                 <p class="text-muted-foreground">{{ certification.issuer }}</p>
                 <Badge class="mt-2">{{ certification.date }}</Badge>
               </div>
-              <p class="text-center text-muted-foreground">{{ certification.description }}</p>
+              <p class="text-center text-muted-foreground h-24">{{ certification.description }}</p>
               <div class="mt-6 flex justify-center">
                 <Button variant="outline" size="sm" as-child>
                   <a
@@ -356,6 +373,7 @@ const featuredProjects = [
     image: '/images/weatheroo.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
     link: 'https://github.com/Vasilis-Rousis/weatheroo',
+    siteLink: 'https://weatheroo.vercel.app',
   },
 ]
 
