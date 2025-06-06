@@ -112,7 +112,7 @@
           <Card
             v-for="project in featuredProjects"
             :key="project.id"
-            class="overflow-hidden group border-0 bg-card shadow-md hover:shadow-xl transition-all duration-300 card-hover flex flex-col"
+            class="overflow-hidden group border border-border/30 bg-card shadow-md hover:shadow-xl transition-all duration-300 card-hover flex flex-col"
           >
             <div class="w-full">
               <AspectRatio :ratio="4 / 3" class="overflow-hidden">

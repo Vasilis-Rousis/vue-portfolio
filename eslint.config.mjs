@@ -7,6 +7,7 @@ export default withNuxt([
       // Vue specific rules
       'vue/multi-word-component-names': 'off',
       'vue/require-default-prop': 'off',
+      'vue/html-self-closing': 'off',
 
       // TypeScript rules
       '@typescript-eslint/no-unused-vars': [
