@@ -379,7 +379,7 @@ const featuredProjects = [
     image: '/images/weatheroo.jpg',
     tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
     link: 'https://github.com/Vasilis-Rousis/weatheroo',
-    siteLink: 'https://weatheroo.vercel.app',
+    siteLink: 'https://weatheroo-three.vercel.app/',
   },
 ]
 
