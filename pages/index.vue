@@ -353,6 +353,16 @@ const scrollToProjects = () => {
 const featuredProjects = [
   {
     id: 1,
+    title: 'JobTracker',
+    description:
+      'A full-stack job application tracking app built with React, Node.js, and PostgreSQL. It allows users to manage their job applications, track progress, and stay organized throughout their job search.',
+    image: '/images/job-tracker.jpg',
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+    link: 'https://github.com/Vasilis-Rousis/track-job',
+    siteLink: 'https://job-tracker.duckdns.org/',
+  },
+  {
+    id: 2,
     title: 'WonderGuide',
     description:
       'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
@@ -360,16 +370,6 @@ const featuredProjects = [
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
     siteLink: '',
-  },
-  {
-    id: 2,
-    title: 'Personal Portfolio',
-    description:
-      'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
-    image: '/images/portfolio-website.jpg',
-    tags: ['Nuxt 3', 'Tailwind', 'Vite'],
-    link: 'https://github.com/Vasilis-Rousis/vue-portfolio',
-    siteLink: 'https://vasilis-rousis.com',
   },
   {
     id: 3,

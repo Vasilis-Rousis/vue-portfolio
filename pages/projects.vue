@@ -160,6 +160,19 @@ const activeFilter = ref('all')
 const projects = [
   {
     id: 1,
+    title: 'JobTracker',
+    description:
+      'A full-stack job application tracking app built with React, Node.js, and PostgreSQL. It allows users to manage their job applications, track progress, and stay organized throughout their job search.',
+    image: '/images/job-tracker.jpg',
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+    link: 'https://github.com/Vasilis-Rousis/track-job',
+    siteLink: 'https://job-tracker.duckdns.org/',
+    longDescription:
+      'JobTracker is a full-stack job application tracking app built with React, Node.js, and PostgreSQL. It allows users to manage their job applications, track progress, and stay organized throughout their job search. The app features a user-friendly interface, real-time updates, and secure authentication. Users can add, edit, and delete job applications, send automated follow-up emails to recruiters, and generate reports to analyze their job search progress. This project demonstrates my skills in full-stack development, database management, and creating responsive, interactive web applications.',
+    category: 'web',
+  },
+  {
+    id: 2,
     title: 'WonderGuide',
     description:
       'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
@@ -172,7 +185,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Personal Portfolio',
     description:
       'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
@@ -185,7 +198,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Weatheroo',
     description:
       'Modern weather app built with Nuxt 3, featuring interactive maps, geolocation, and Redis caching',
@@ -198,7 +211,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Warehouse Management App',
     description: 'Android app for managing warehouse inventory and tracking shipments',
     image: '/images/warehouse-management.jpg',
