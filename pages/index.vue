@@ -363,16 +363,6 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: 'WonderGuide',
-    description:
-      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
-    image: '/images/wonderguide.jpg',
-    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
-    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
-    siteLink: '',
-  },
-  {
-    id: 3,
     title: 'Weatheroo',
     description:
       'A modern weather dashboard built with Nuxt 3 featuring interactive maps, geolocation services, real-time animations, and Redis-powered caching',
@@ -380,6 +370,16 @@ const featuredProjects = [
     tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
     link: 'https://github.com/Vasilis-Rousis/weatheroo',
     siteLink: 'https://weatheroo-three.vercel.app/',
+  },
+  {
+    id: 3,
+    title: 'WonderGuide',
+    description:
+      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
+    image: '/images/wonderguide.jpg',
+    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
+    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
+    siteLink: '',
   },
 ]
 

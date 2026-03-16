@@ -18,8 +18,8 @@
       </div>
     </section>
 
-    <!-- Filter Section -->
-    <section class="pb-12">
+    <!-- Filter Section (only shown when mobile projects exist) -->
+    <section v-if="hasMobileProjects" class="pb-12">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-center gap-3 mb-8">
           <Button
@@ -173,15 +173,15 @@ const projects = [
   },
   {
     id: 2,
-    title: 'WonderGuide',
+    title: 'Weatheroo',
     description:
-      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
-    image: '/images/wonderguide.jpg',
-    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
-    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
-    siteLink: '',
+      'Modern weather app built with Nuxt 3, featuring interactive maps, geolocation, and Redis caching',
+    image: '/images/weatheroo.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
+    link: 'https://github.com/Vasilis-Rousis/weatheroo',
+    siteLink: 'https://weatheroo-three.vercel.app',
     longDescription:
-      'WonderGuide is an innovative virtual travel assistant that leverages the ChatGPT API to create personalized travel itineraries. Users can specify their destination, travel duration, interests, and budget, and the app generates detailed day-by-day itineraries with recommendations for attractions, restaurants, and activities. Built with Nuxt 3 for the frontend and Supabase for backend services including user authentication and data storage. The integration with ChatGPT API enables natural language interaction and tailored travel suggestions that feel like recommendations from a knowledgeable local guide. This project showcases my skills in API integration, modern frontend development, and creating intuitive user experiences.',
+      'A comprehensive weather application built with Nuxt 3 and TypeScript, showcasing full-stack development skills. Features include real-time weather data from OpenWeatherMap API, interactive weather maps powered by Leaflet, and intelligent geolocation services with user preference management. The app implements Redis-based caching and rate limiting for optimal performance, animated weather conditions, and responsive design using Tailwind CSS and shadcn/ui components. Additional features include dark/light mode theming, progressive loading states, local timezone detection, and a polished user experience with smooth transitions. Deployed with proper error handling, admin monitoring, and scalable architecture patterns.',
     category: 'web',
   },
   {
@@ -199,30 +199,35 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Weatheroo',
+    title: 'WonderGuide',
     description:
-      'Modern weather app built with Nuxt 3, featuring interactive maps, geolocation, and Redis caching',
-    image: '/images/weatheroo.jpg',
-    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
-    link: 'https://github.com/Vasilis-Rousis/weatheroo',
-    siteLink: 'https://weatheroo-three.vercel.app',
+      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
+    image: '/images/wonderguide.jpg',
+    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
+    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
+    siteLink: '',
     longDescription:
-      'A comprehensive weather application built with Nuxt 3 and TypeScript, showcasing full-stack development skills. Features include real-time weather data from OpenWeatherMap API, interactive weather maps powered by Leaflet, and intelligent geolocation services with user preference management. The app implements Redis-based caching and rate limiting for optimal performance, animated weather conditions, and responsive design using Tailwind CSS and shadcn/ui components. Additional features include dark/light mode theming, progressive loading states, local timezone detection, and a polished user experience with smooth transitions. Deployed with proper error handling, admin monitoring, and scalable architecture patterns.',
+      'WonderGuide is an innovative virtual travel assistant that leverages the ChatGPT API to create personalized travel itineraries. Users can specify their destination, travel duration, interests, and budget, and the app generates detailed day-by-day itineraries with recommendations for attractions, restaurants, and activities. Built with Nuxt 3 for the frontend and Supabase for backend services including user authentication and data storage. The integration with ChatGPT API enables natural language interaction and tailored travel suggestions that feel like recommendations from a knowledgeable local guide. This project showcases my skills in API integration, modern frontend development, and creating intuitive user experiences.',
     category: 'web',
   },
   {
     id: 5,
-    title: 'Warehouse Management App',
-    description: 'Android app for managing warehouse inventory and tracking shipments',
-    image: '/images/warehouse-management.jpg',
-    tags: ['Java', 'SQLite', 'OkHttp3'],
-    link: 'https://github.com/Vasilis-Rousis/warehouse-management-app',
+    title: 'Posts App',
+    description:
+      'A modern, containerized full-stack social media application featuring a React frontend and Node.js backend with authentication, CRUD operations, and real-time like functionality',
+    image: '/images/posts-app.jpg',
+    tags: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Docker'],
+    link: 'https://github.com/Vasilis-Rousis/posts-app',
     siteLink: '',
     longDescription:
-      'The Warehouse Management App is a comprehensive Android application developed to streamline inventory management and shipment tracking in warehouse environments. Built with Java and utilizing SQLite for local data storage, the app enables warehouse staff to scan barcodes, track inventory levels, manage product locations, and process incoming and outgoing shipments. OkHttp3 is used to communicate with backend systems, ensuring real-time data synchronization. The app features an offline mode that allows continued operation during network outages, with automatic syncing when connectivity is restored. Key functionalities include inventory auditing, shipment status updates, low stock alerts, and comprehensive reporting capabilities. This project demonstrates my ability to develop mobile solutions for complex business requirements.',
-    category: 'mobile',
+      'The Posts App is a modern, containerized full-stack social media application featuring a React frontend and Node.js backend. It includes authentication, CRUD operations, and real-time like functionality. The app is built with PostgreSQL for data storage and Docker for containerization, ensuring a scalable and maintainable architecture. This project demonstrates my ability to develop full-stack applications with modern technologies and best practices.',
+    category: 'web',
   },
 ]
+
+const hasMobileProjects = computed(() => {
+  return projects.some((project) => project.category === 'mobile')
+})
 
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'all') {
