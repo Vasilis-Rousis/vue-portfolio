@@ -107,7 +107,7 @@
                     </HoverCardContent>
                   </HoverCard>
                 </div>
-                <CardDescription class="text-sm text-muted-foreground line-clamp-2">
+                <CardDescription class="text-sm text-muted-foreground line-clamp-3">
                   {{ project.description }}
                 </CardDescription>
               </CardHeader>
