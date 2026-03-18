@@ -373,13 +373,13 @@ const featuredProjects = [
   },
   {
     id: 3,
-    title: 'WonderGuide',
+    title: 'FPL Edge',
     description:
-      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
-    image: '/images/wonderguide.jpg',
-    tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
-    link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
-    siteLink: '',
+      'Fantasy Premier League analytics dashboard with algorithm-based player scoring, H2H insights, and transfer recommendations',
+    image: '/images/fpl-edge.jpg',
+    tags: ['Next.js 16', 'Tailwind', 'Supabase', 'FPL API', 'TypeScript'],
+    link: 'https://github.com/Vasilis-Rousis/fpl-app',
+    siteLink: 'https://fpl-app-five.vercel.app/',
   },
 ]
 

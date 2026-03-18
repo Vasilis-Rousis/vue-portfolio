@@ -173,6 +173,19 @@ const projects = [
   },
   {
     id: 2,
+    title: 'FPL Edge',
+    description:
+      'Fantasy Premier League analytics dashboard with algorithm-based player scoring, H2H insights, and transfer recommendations',
+    image: '/images/fpl-edge.jpg',
+    tags: ['Next.js 16', 'Tailwind', 'Supabase', 'FPL API', 'TypeScript'],
+    link: 'https://github.com/Vasilis-Rousis/fpl-app',
+    siteLink: 'https://fpl-app-five.vercel.app/',
+    longDescription:
+      'A data-driven Fantasy Premier League analytics platform built with Next.js 16 and TypeScript. Features a custom composite scoring algorithm that evaluates players across five weighted dimensions: form (recency-weighted with xG regression), fixture difficulty, consistency, value-for-money, and home/away performance. Includes head-to-head league tracking with opponent squad analysis, differentials detection, captain and transfer history insights. The app syncs live data from the official FPL API into Supabase with concurrent batch processing and queue-based rate limiting. Additional features include blank gameweek detection, interactive form charts with Recharts, player search and filtering, and a responsive dark-themed UI. Protected by cookie-based authentication with HMAC-signed sessions and Edge Runtime middleware.',
+    category: 'web',
+  },
+  {
+    id: 3,
     title: 'Weatheroo',
     description:
       'Modern weather app built with Nuxt 3, featuring interactive maps, geolocation, and Redis caching',
@@ -185,7 +198,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Personal Portfolio',
     description:
       'Showcasing my journey in web development, featuring projects that highlight my expertise in modern web technologies',
@@ -198,7 +211,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 4,
+    id: 5,
     title: 'WonderGuide',
     description:
       'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
@@ -211,7 +224,7 @@ const projects = [
     category: 'web',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Posts App',
     description:
       'A modern, containerized full-stack social media application featuring a React frontend and Node.js backend with authentication, CRUD operations, and real-time like functionality',
