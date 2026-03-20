@@ -187,7 +187,7 @@ const projects = [
     id: 1,
     title: 'JobTracker',
     description:
-      'A full-stack job application tracking app built with React, Node.js, and PostgreSQL. It allows users to manage their job applications, track progress, and stay organized throughout their job search.',
+      'Full-stack job application tracking app. It allows users to manage their job applications and stay organized throughout their job search.',
     image: '/images/job-tracker.jpg',
     tags: ['React', 'Node.js', 'PostgreSQL'],
     link: 'https://github.com/Vasilis-Rousis/track-job',
@@ -238,7 +238,8 @@ const projects = [
   {
     id: 5,
     title: 'WonderGuide',
-    description: 'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries',
+    description:
+      'Virtual travel guide with clean and modern design using ChatGPT API to suggest amazing travel itineraries',
     image: '/images/wonderguide.jpg',
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: 'https://github.com/Vasilis-Rousis/wonderguide-app',
@@ -251,7 +252,7 @@ const projects = [
     id: 6,
     title: 'Posts App',
     description:
-      'A modern, containerized full-stack social media application featuring a React frontend and Node.js backend with authentication, CRUD operations, and real-time like functionality',
+      'Containerized full-stack social media application with authentication, CRUD operations, and real-time like functionality',
     image: '/images/posts-app.jpg',
     tags: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Docker'],
     link: 'https://github.com/Vasilis-Rousis/posts-app',

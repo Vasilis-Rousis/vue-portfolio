@@ -44,7 +44,7 @@
               </Button>
               <Button
                 variant="outline"
-                class="group border-border hover:bg-muted/50 font-body font-medium transition-all duration-300"
+                class="group border-border text-foreground hover:bg-muted/50 hover:text-foreground font-body font-medium transition-all duration-300"
                 as-child
               >
                 <NuxtLink to="/contact" class="flex items-center">
@@ -185,7 +185,7 @@
         <div class="flex justify-center mt-14">
           <Button
             variant="outline"
-            class="group border-border hover:bg-muted/50 font-body font-medium transition-all duration-300"
+            class="group border-border text-foreground hover:bg-muted/50 hover:text-foreground font-body font-medium transition-all duration-300"
             as-child
           >
             <NuxtLink to="/projects" class="flex items-center">
@@ -371,16 +371,6 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: 'Weatheroo',
-    description:
-      'A modern weather dashboard built with Nuxt 3 featuring interactive maps, geolocation services, real-time animations, and Redis-powered caching',
-    image: '/images/weatheroo.jpg',
-    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
-    link: 'https://github.com/Vasilis-Rousis/weatheroo',
-    siteLink: 'https://weatheroo-three.vercel.app/',
-  },
-  {
-    id: 3,
     title: 'FPL Edge',
     description:
       'Fantasy Premier League analytics dashboard with algorithm-based player scoring, H2H insights, and transfer recommendations',
@@ -389,24 +379,34 @@ const featuredProjects = [
     link: 'https://github.com/Vasilis-Rousis/fpl-app',
     siteLink: 'https://fpl-app-five.vercel.app/',
   },
+  {
+    id: 3,
+    title: 'Weatheroo',
+    description:
+      'A modern weather dashboard built with Nuxt 3 featuring interactive maps, geolocation services, real-time animations, and Redis-powered caching',
+    image: '/images/weatheroo.jpg',
+    tags: ['Nuxt 3', 'Tailwind', 'Redis', 'OpenWeather API'],
+    link: 'https://github.com/Vasilis-Rousis/weatheroo',
+    siteLink: 'https://weatheroo-three.vercel.app/',
+  },
 ]
 
 // Skills with Icons
 const skillsWithIcons = [
-  { name: 'Vue.js', icon: 'lucide:code' },
+  { name: 'React', icon: 'lucide:code' },
   { name: 'Nuxt.js', icon: 'lucide:box' },
-  { name: 'JavaScript', icon: 'lucide:file-code' },
+  { name: 'Vue.js', icon: 'lucide:file-code' },
   { name: 'TypeScript', icon: 'lucide:file-type' },
   { name: 'Tailwind CSS', icon: 'lucide:palette' },
   { name: 'UI/UX Design', icon: 'lucide:layout' },
-  { name: 'Responsive Design', icon: 'lucide:smartphone' },
-  { name: 'API Integration', icon: 'lucide:database' },
+  { name: 'Redis', icon: 'lucide:server' },
+  { name: 'PostgreSQL', icon: 'lucide:database' },
 ]
 
 // Additional Skills
 const additionalSkills = [
-  'Confluence',
-  'CSS3',
+  'Docker',
+  'Prisma',
   'Git',
   'RESTful APIs',
   'Node.js',
@@ -414,7 +414,9 @@ const additionalSkills = [
   'Figma',
   'Adobe Experience Manager',
   'Jira',
+  'Confluence',
   'Performance Optimization',
+  'Claude',
 ]
 
 // Certifications Data

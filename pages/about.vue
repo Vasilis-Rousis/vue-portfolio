@@ -222,14 +222,14 @@
 defineOgImageComponent('NuxtSeo')
 
 const devSkills = [
+  'React / Next.js',
   'Vue.js / Nuxt.js',
   'JavaScript / TypeScript',
-  'HTML5 / CSS3',
   'Tailwind CSS',
-  'Responsive Design',
-  'RESTful APIs',
+  'Docker',
+  'PostgreSQL / Supabase',
   'Git / GitHub',
-  'Node.js',
+  'Node.js / Express',
 ]
 
 const functionalSkills = [
