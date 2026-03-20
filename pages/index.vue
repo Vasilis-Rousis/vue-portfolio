@@ -74,9 +74,8 @@
                   height="288"
                   loading="eager"
                   fetchpriority="high"
-                  class="ml-4 mt-4"
+                  class="object-cover"
                 />
-                <AvatarFallback class="bg-muted font-display text-2xl">VR</AvatarFallback>
               </Avatar>
             </div>
           </div>
@@ -127,7 +126,7 @@
                   format="webp"
                   placeholder
                   loading="lazy"
-                  class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
+                  class="object-cover w-full h-full scale-110 group-hover:scale-115 transition-transform duration-700"
                 />
                 <div
                   class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
