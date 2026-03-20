@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: '',
-    preference: 'system', // default value of $colorMode.preference
+    preference: 'dark', // default to dark mode for all visitors
     fallback: 'dark', // fallback value if not system preference found
   },
   shadcn: {
@@ -99,6 +99,20 @@ export default defineNuxtConfig({
           as: 'image',
           href: '/images/avatar.jpg',
           type: 'image/jpeg',
+        },
+        // Google Fonts - Libre Baskerville (display) + Manrope (body)
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com',
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: '',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap',
         },
       ],
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],

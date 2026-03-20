@@ -2,16 +2,16 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="py-16 md:py-24 relative">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+    <section class="py-20 md:py-28 relative">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-3xl mx-auto text-center mb-12">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="tracking-wide-caps text-xs font-semibold text-accent mb-4">Get to Know Me</p>
           <h1
-            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-editorial mb-6"
           >
             About Me
           </h1>
-          <p class="text-xl text-muted-foreground">
+          <p class="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
             Get to know my story, skills, and what drives me as a developer
           </p>
         </div>
@@ -19,15 +19,17 @@
     </section>
 
     <!-- Bio Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-16 md:py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
           <div class="relative">
-            <div class="absolute -inset-4 rounded-xl bg-primary/10 blur-xl opacity-70" />
-            <div class="relative aspect-square overflow-hidden rounded-xl">
+            <div class="absolute -inset-6 bg-accent/5 rounded-2xl blur-3xl" />
+            <div
+              class="relative overflow-hidden rounded-xl border border-border/30 shadow-lg shadow-black/5 dark:shadow-black/20"
+            >
               <NuxtImg
                 src="/images/hero.jpg"
-                alt="Your Name"
+                alt="Vasilis Rousis"
                 class="object-cover w-full h-full"
                 width="1200"
                 quality="90"
@@ -35,8 +37,8 @@
             </div>
           </div>
           <div class="space-y-6">
-            <h2 class="text-3xl font-bold tracking-tight">My Journey</h2>
-            <div class="space-y-4 text-muted-foreground">
+            <h2 class="font-display text-3xl font-bold tracking-editorial">My Journey</h2>
+            <div class="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Hello! I'm <span class="font-medium text-foreground">Vasilis</span>, a passionate
                 software developer with a deep love for creating intuitive and beautiful user
@@ -60,38 +62,61 @@
       </div>
     </section>
 
-    <!-- Section divider -->
     <div class="section-divider" />
 
     <!-- Experience Section -->
-    <section class="py-12 md:py-16 bg-muted/30">
+    <section class="py-16 md:py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-center mb-12">Experience</h2>
-        <div class="max-w-3xl mx-auto">
-          <div class="space-y-12">
+        <div class="max-w-2xl mb-14">
+          <p class="tracking-wide-caps text-xs font-semibold text-accent mb-3">Career</p>
+          <h2 class="font-display text-3xl font-bold tracking-editorial">Experience</h2>
+        </div>
+
+        <div class="max-w-3xl">
+          <div class="relative pl-8">
+            <!-- Timeline line -->
+            <div class="absolute left-0 top-2 bottom-0 w-px bg-border/60" />
+            <!-- Timeline dot -->
             <div
-              class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-0.5 before:bg-border"
-            >
-              <div
-                class="absolute left-0 top-0 h-6 w-6 -translate-x-1/2 rounded-full border bg-background"
-              />
-              <h3 class="font-semibold text-xl mb-1">Software Developer</h3>
-              <p class="text-sm text-muted-foreground mb-4">Deloitte • 2022 - Present</p>
-              <ul class="space-y-2 text-muted-foreground list-disc list-outside ml-5">
-                <li>
-                  Developed and maintained web applications using various tools and frameworks in
-                  multiple projects
+              class="absolute left-0 top-2 w-2 h-2 -translate-x-[3.5px] rounded-full bg-accent"
+            />
+
+            <div>
+              <h3 class="font-display text-xl font-bold tracking-editorial mb-1">
+                Software Developer
+              </h3>
+              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-5">
+                <span>Deloitte</span>
+                <span class="accent-dot" />
+                <span>2022 - Present</span>
+              </div>
+              <ul class="space-y-3 text-muted-foreground leading-relaxed">
+                <li class="flex gap-3">
+                  <span class="text-accent mt-1.5 flex-shrink-0">-</span>
+                  <span>
+                    Developed and maintained web applications using various tools and frameworks in
+                    multiple projects
+                  </span>
                 </li>
-                <li>
-                  Collaborated with cross-functional teams to design and implement innovative
-                  features
+                <li class="flex gap-3">
+                  <span class="text-accent mt-1.5 flex-shrink-0">-</span>
+                  <span>
+                    Collaborated with cross-functional teams to design and implement innovative
+                    features
+                  </span>
                 </li>
-                <li>
-                  Ensured high levels of client satisfaction through tailored software development
+                <li class="flex gap-3">
+                  <span class="text-accent mt-1.5 flex-shrink-0">-</span>
+                  <span>
+                    Ensured high levels of client satisfaction through tailored software development
+                  </span>
                 </li>
-                <li>
-                  Led and coordinated team efforts, overseeing daily client communications and
-                  ensuring project alignment with client expectations.
+                <li class="flex gap-3">
+                  <span class="text-accent mt-1.5 flex-shrink-0">-</span>
+                  <span>
+                    Led and coordinated team efforts, overseeing daily client communications and
+                    ensuring project alignment with client expectations.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -100,95 +125,58 @@
       </div>
     </section>
 
-    <!-- Section divider -->
     <div class="section-divider" />
 
     <!-- Skills and Tools Section -->
-    <section class="py-12 md:py-16">
+    <section class="py-16 md:py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-center mb-12">Skills & Tools</h2>
+        <div class="max-w-2xl mb-14">
+          <p class="tracking-wide-caps text-xs font-semibold text-accent mb-3">Expertise</p>
+          <h2 class="font-display text-3xl font-bold tracking-editorial">Skills & Tools</h2>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card class="card-hover shadow-sm">
+          <Card class="border border-border/40 bg-card shadow-sm card-hover">
             <CardHeader>
-              <CardTitle>Development Skills</CardTitle>
-              <CardDescription>Technologies and languages I use daily</CardDescription>
+              <CardTitle class="font-display text-xl tracking-editorial">
+                Development Skills
+              </CardTitle>
+              <CardDescription class="text-sm text-muted-foreground">
+                Technologies and languages I use daily
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Vue.js / Nuxt.js</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>JavaScript / TypeScript</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>HTML5 / CSS3</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Tailwind CSS</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Responsive Design</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>RESTful APIs</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Git / GitHub</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Node.js</span>
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  v-for="skill in devSkills"
+                  :key="skill"
+                  class="flex items-center gap-2.5 text-sm"
+                >
+                  <span class="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+                  <span>{{ skill }}</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card class="card-hover shadow-sm">
+          <Card class="border border-border/40 bg-card shadow-sm card-hover">
             <CardHeader>
-              <CardTitle>Functional Skills</CardTitle>
-              <CardDescription>Design, business tools and soft skills</CardDescription>
+              <CardTitle class="font-display text-xl tracking-editorial">
+                Functional Skills
+              </CardTitle>
+              <CardDescription class="text-sm text-muted-foreground">
+                Design, business tools and soft skills
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Jira</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Confluence</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>UI/UX Design</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Wireframing</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Agile</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Communication</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Teamwork</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="lucide:check-circle" class="h-5 w-5 text-primary" />
-                  <span>Figma</span>
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  v-for="skill in functionalSkills"
+                  :key="skill"
+                  class="flex items-center gap-2.5 text-sm"
+                >
+                  <span class="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+                  <span>{{ skill }}</span>
                 </div>
               </div>
             </CardContent>
@@ -197,19 +185,33 @@
       </div>
     </section>
 
-    <!-- Section divider -->
     <div class="section-divider" />
 
     <!-- CTA Section -->
-    <section class="py-12 md:py-16 bg-primary text-primary-foreground cta-section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to Work Together?</h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+    <section
+      class="py-20 md:py-28 bg-foreground text-background cta-section relative overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3" />
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-editorial mb-5">
+          Ready to Work Together?
+        </h2>
+        <p class="text-lg mb-10 max-w-xl mx-auto opacity-70 leading-relaxed">
           I'm open to exciting opportunities where I can contribute my skills and grow with
           innovative companies.
         </p>
-        <Button variant="secondary" size="lg" class="font-medium" as-child>
-          <NuxtLink to="/contact">Get in Touch</NuxtLink>
+        <Button
+          size="lg"
+          class="group bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold transition-all duration-300"
+          as-child
+        >
+          <NuxtLink to="/contact" class="flex items-center">
+            Get in Touch
+            <Icon
+              name="lucide:arrow-right"
+              class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </NuxtLink>
         </Button>
       </div>
     </section>
@@ -218,4 +220,26 @@
 
 <script setup>
 defineOgImageComponent('NuxtSeo')
+
+const devSkills = [
+  'Vue.js / Nuxt.js',
+  'JavaScript / TypeScript',
+  'HTML5 / CSS3',
+  'Tailwind CSS',
+  'Responsive Design',
+  'RESTful APIs',
+  'Git / GitHub',
+  'Node.js',
+]
+
+const functionalSkills = [
+  'Jira',
+  'Confluence',
+  'UI/UX Design',
+  'Wireframing',
+  'Agile',
+  'Communication',
+  'Teamwork',
+  'Figma',
+]
 </script>

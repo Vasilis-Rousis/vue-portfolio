@@ -1,16 +1,17 @@
+<!-- pages/contact.vue -->
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="py-16 md:py-24 relative">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-      <div class="container px-4 md:px-6 relative">
-        <div class="max-w-3xl mx-auto text-center mb-12">
+    <section class="py-20 md:py-28 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="tracking-wide-caps text-xs font-semibold text-accent mb-4">Let's Connect</p>
           <h1
-            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-editorial mb-6"
           >
             Get In Touch
           </h1>
-          <p class="text-xl text-muted-foreground">
+          <p class="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
             I'd love to hear from you! Let's discuss your project or answer any questions.
           </p>
         </div>
@@ -18,15 +19,17 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-12 md:py-16">
-      <div class="container px-4 md:px-6">
-        <div class="grid md:grid-cols-2 gap-12">
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-16">
           <!-- Contact Form -->
           <div>
-            <Card class="border-0 shadow-lg">
+            <Card class="border border-border/40 bg-card shadow-sm">
               <CardHeader>
-                <CardTitle class="text-2xl font-bold tracking-tight mb-4">Send a Message</CardTitle>
-                <CardDescription class="text-muted-foreground">
+                <CardTitle class="font-display text-2xl tracking-editorial">
+                  Send a Message
+                </CardTitle>
+                <CardDescription class="text-muted-foreground leading-relaxed">
                   Fill out the form below and I'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
@@ -34,39 +37,30 @@
                 <!-- Status message alert -->
                 <div
                   v-if="formStatus.show"
-                  class="mb-6 p-4 rounded-md transition-all duration-300"
+                  class="mb-6 p-4 rounded-lg transition-all duration-300 text-sm"
                   :class="
                     formStatus.isError
-                      ? 'bg-destructive/15 text-destructive'
-                      : 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                      ? 'bg-destructive/10 text-destructive border border-destructive/20'
+                      : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/30'
                   "
                 >
-                  <div class="flex">
-                    <div class="flex-shrink-0">
-                      <Icon
-                        :name="formStatus.isError ? 'lucide:alert-circle' : 'lucide:check-circle'"
-                        class="h-5 w-5"
-                        :class="
-                          formStatus.isError
-                            ? 'text-destructive'
-                            : 'text-green-500 dark:text-green-400'
-                        "
-                      />
-                    </div>
-                    <div class="ml-3">
-                      <p class="text-sm font-medium">{{ formStatus.message }}</p>
-                    </div>
+                  <div class="flex items-start gap-3">
+                    <Icon
+                      :name="formStatus.isError ? 'lucide:alert-circle' : 'lucide:check-circle'"
+                      class="h-4 w-4 mt-0.5 flex-shrink-0"
+                    />
+                    <p class="font-medium">{{ formStatus.message }}</p>
                   </div>
                 </div>
 
-                <form ref="contactForm" class="space-y-6" @submit.prevent="submitForm">
-                  <div class="space-y-2">
-                    <label for="name" class="text-sm font-medium">Name</label>
+                <form ref="contactForm" class="space-y-5" @submit.prevent="submitForm">
+                  <div class="space-y-1.5">
+                    <label for="name" class="text-sm font-body font-medium">Name</label>
                     <input
                       id="name"
                       v-model="form.name"
                       type="text"
-                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm font-body transition-colors duration-200 placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:border-accent/50"
                       :class="errors.name ? 'border-destructive' : 'border-input'"
                       placeholder="Your name"
                     />
@@ -75,13 +69,13 @@
                     </p>
                   </div>
 
-                  <div class="space-y-2">
-                    <label for="email" class="text-sm font-medium">Email</label>
+                  <div class="space-y-1.5">
+                    <label for="email" class="text-sm font-body font-medium">Email</label>
                     <input
                       id="email"
                       v-model="form.email"
                       type="email"
-                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm font-body transition-colors duration-200 placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:border-accent/50"
                       :class="errors.email ? 'border-destructive' : 'border-input'"
                       placeholder="your.email@example.com"
                     />
@@ -90,13 +84,13 @@
                     </p>
                   </div>
 
-                  <div class="space-y-2">
-                    <label for="subject" class="text-sm font-medium">Subject</label>
+                  <div class="space-y-1.5">
+                    <label for="subject" class="text-sm font-body font-medium">Subject</label>
                     <input
                       id="subject"
                       v-model="form.subject"
                       type="text"
-                      class="flex h-9 w-full rounded-md border bg-background px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm font-body transition-colors duration-200 placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:border-accent/50"
                       :class="errors.subject ? 'border-destructive' : 'border-input'"
                       placeholder="What's this regarding?"
                     />
@@ -105,13 +99,13 @@
                     </p>
                   </div>
 
-                  <div class="space-y-2">
-                    <label for="message" class="text-sm font-medium">Message</label>
+                  <div class="space-y-1.5">
+                    <label for="message" class="text-sm font-body font-medium">Message</label>
                     <textarea
                       id="message"
                       v-model="form.message"
                       rows="5"
-                      class="flex w-full rounded-md border bg-background px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      class="flex w-full rounded-md border bg-background px-3 py-2.5 text-sm font-body transition-colors duration-200 placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:border-accent/50 resize-none"
                       :class="errors.message ? 'border-destructive' : 'border-input'"
                       placeholder="Your message here..."
                       @focus="loadRecaptchaIfNeeded"
@@ -121,7 +115,11 @@
                     </p>
                   </div>
 
-                  <Button type="submit" class="w-full" :disabled="isSubmitting">
+                  <Button
+                    type="submit"
+                    class="w-full bg-foreground hover:bg-foreground/90 text-background font-body font-medium transition-all duration-300"
+                    :disabled="isSubmitting"
+                  >
                     <Icon
                       v-if="isSubmitting"
                       name="lucide:loader-2"
@@ -135,52 +133,59 @@
           </div>
 
           <!-- Contact Info -->
-          <div class="space-y-8">
+          <div class="space-y-10">
             <div>
-              <h2 class="text-2xl font-bold tracking-tight mb-4 mt-7">Contact Information</h2>
-              <p class="text-muted-foreground mb-6">
+              <p class="tracking-wide-caps text-xs font-semibold text-accent mb-3">Details</p>
+              <h2 class="font-display text-2xl font-bold tracking-editorial mb-4">
+                Contact Information
+              </h2>
+              <p class="text-muted-foreground leading-relaxed mb-8">
                 Feel free to reach out to me through any of the following methods:
               </p>
 
-              <div class="space-y-4">
+              <div class="space-y-5">
                 <div class="flex items-start gap-4">
                   <div
-                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                    class="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <Icon name="lucide:mail" class="h-5 w-5 text-primary" />
+                    <Icon name="lucide:mail" class="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <h3 class="font-medium">Email</h3>
-                    <p class="text-sm text-muted-foreground">
-                      <a href="mailto:vasileios.rousis1@gmail.com" class="hover-underline"
-                        >vasileios.rousis1@gmail.com</a
-                      >
-                    </p>
+                    <h3 class="font-body font-semibold text-sm mb-0.5">Email</h3>
+                    <a
+                      href="mailto:vasileios.rousis1@gmail.com"
+                      class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    >
+                      vasileios.rousis1@gmail.com
+                    </a>
                   </div>
                 </div>
 
                 <div class="flex items-start gap-4">
                   <div
-                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                    class="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <Icon name="lucide:phone" class="h-5 w-5 text-primary" />
+                    <Icon name="lucide:phone" class="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <h3 class="font-medium">Phone</h3>
-                    <p class="text-sm text-muted-foreground">
-                      <a href="tel:+306971596684" class="hover-underline">+306971596684</a>
-                    </p>
+                    <h3 class="font-body font-semibold text-sm mb-0.5">Phone</h3>
+                    <a
+                      href="tel:+306971596684"
+                      class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    >
+                      +306971596684
+                    </a>
                   </div>
                 </div>
 
                 <div class="flex items-start gap-4">
                   <div
-                    class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center"
+                    class="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
                   >
-                    <Icon name="lucide:map-pin" class="h-5 w-5 text-primary" />
+                    <Icon name="lucide:map-pin" class="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <h3 class="font-medium">Location</h3>
+                    <h3 class="font-body font-semibold text-sm mb-0.5">Location</h3>
                     <p class="text-sm text-muted-foreground">Thessaloniki, Greece</p>
                   </div>
                 </div>
@@ -189,31 +194,34 @@
 
             <!-- Social Media -->
             <div>
-              <h2 class="text-2xl font-bold tracking-tight mb-4">Connect With Me</h2>
-              <div class="flex gap-4">
+              <p class="tracking-wide-caps text-xs font-semibold text-accent mb-3">Social</p>
+              <h2 class="font-display text-2xl font-bold tracking-editorial mb-5">
+                Connect With Me
+              </h2>
+              <div class="flex gap-3">
                 <a
                   href="https://github.com/Vasilis-Rousis"
-                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  class="h-10 w-10 rounded-lg border border-border/40 bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-accent/5 transition-all duration-200"
                 >
-                  <Icon name="lucide:github" class="h-5 w-5" />
+                  <Icon name="lucide:github" class="h-4 w-4" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/vasilis-rousis/"
-                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  class="h-10 w-10 rounded-lg border border-border/40 bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-accent/5 transition-all duration-200"
                 >
-                  <Icon name="lucide:linkedin" class="h-5 w-5" />
+                  <Icon name="lucide:linkedin" class="h-4 w-4" />
                 </a>
                 <a
                   href="https://www.facebook.com/vasilis.r/"
-                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  class="h-10 w-10 rounded-lg border border-border/40 bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-accent/5 transition-all duration-200"
                 >
-                  <Icon name="lucide:facebook" class="h-5 w-5" />
+                  <Icon name="lucide:facebook" class="h-4 w-4" />
                 </a>
                 <a
                   href="https://www.instagram.com/vasilis_rousis/"
-                  class="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  class="h-10 w-10 rounded-lg border border-border/40 bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-accent/40 hover:bg-accent/5 transition-all duration-200"
                 >
-                  <Icon name="lucide:instagram" class="h-5 w-5" />
+                  <Icon name="lucide:instagram" class="h-4 w-4" />
                 </a>
               </div>
             </div>

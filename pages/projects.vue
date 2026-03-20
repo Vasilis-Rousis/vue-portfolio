@@ -2,16 +2,16 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="py-16 md:py-24 relative">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+    <section class="py-20 md:py-28 relative">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-3xl mx-auto text-center mb-12">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="tracking-wide-caps text-xs font-semibold text-accent mb-4">Portfolio</p>
           <h1
-            class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl gradient-text mb-6 h-20"
+            class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-editorial mb-6"
           >
             My Projects
           </h1>
-          <p class="text-xl text-muted-foreground">
+          <p class="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
             Showcasing my best work and creative solutions
           </p>
         </div>
@@ -21,39 +21,34 @@
     <!-- Filter Section (only shown when mobile projects exist) -->
     <section v-if="hasMobileProjects" class="pb-12">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center gap-3 mb-8">
-          <Button
-            :variant="activeFilter === 'all' ? 'default' : 'outline'"
-            @click="activeFilter = 'all'"
+        <div class="flex flex-wrap justify-center gap-2">
+          <button
+            v-for="filter in filters"
+            :key="filter.value"
+            class="px-4 py-2 text-sm font-body font-medium rounded-md transition-all duration-200"
+            :class="
+              activeFilter === filter.value
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+            "
+            @click="activeFilter = filter.value"
           >
-            All Projects
-          </Button>
-          <Button
-            :variant="activeFilter === 'web' ? 'default' : 'outline'"
-            @click="activeFilter = 'web'"
-          >
-            Web
-          </Button>
-          <Button
-            :variant="activeFilter === 'mobile' ? 'default' : 'outline'"
-            @click="activeFilter = 'mobile'"
-          >
-            Mobile
-          </Button>
+            {{ filter.label }}
+          </button>
         </div>
       </div>
     </section>
 
     <!-- Projects Grid -->
-    <section class="py-12 bg-muted/30">
+    <section class="py-16 md:py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div v-for="project in filteredProjects" :key="project.id" class="group">
             <Card
-              class="overflow-hidden h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 card-hover"
+              class="overflow-hidden h-full border border-border/40 bg-card shadow-sm hover:shadow-lg transition-all duration-500 card-hover"
             >
-              <div class="relative">
-                <AspectRatio :ratio="4 / 3" class="overflow-hidden">
+              <div class="relative overflow-hidden">
+                <AspectRatio :ratio="4 / 3">
                   <NuxtImg
                     :src="project.image"
                     :alt="project.title"
@@ -62,62 +57,75 @@
                     format="webp"
                     placeholder
                     loading="lazy"
-                    class="object-cover w-full h-full"
+                    class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
                   />
                   <div
-                    class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/100 to-transparent"
+                    class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
                   />
                 </AspectRatio>
+
+                <!-- Hover overlay with links -->
                 <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
+                  class="absolute inset-0 bg-foreground/60 dark:bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5 gap-2"
                 >
-                  <Button variant="secondary" size="sm" class="backdrop-blur-sm mr-1" as-child>
-                    <a :href="project.link" target="_blank" rel="noopener noreferrer">
-                      View Repo
-                    </a>
-                  </Button>
-                  <Button
-                    v-if="project.siteLink"
-                    variant="secondary"
-                    size="sm"
-                    class="backdrop-blur-sm"
-                    as-child
+                  <a
+                    :href="project.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2 text-xs font-body font-semibold bg-background/90 dark:bg-background/90 text-foreground rounded-md backdrop-blur-sm hover:bg-background transition-colors"
                   >
-                    <a :href="project.siteLink" target="_blank" rel="noopener noreferrer">
-                      Visit Site
-                    </a>
-                  </Button>
+                    View Repo
+                  </a>
+                  <a
+                    v-if="project.siteLink"
+                    :href="project.siteLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2 text-xs font-body font-semibold bg-accent text-accent-foreground rounded-md hover:bg-accent/90 transition-colors"
+                  >
+                    Visit Site
+                  </a>
                 </div>
               </div>
+
               <CardHeader>
                 <div class="flex items-center justify-between">
-                  <CardTitle class="text-xl font-bold">{{ project.title }}</CardTitle>
+                  <CardTitle class="font-display text-xl font-bold tracking-editorial">
+                    {{ project.title }}
+                  </CardTitle>
                   <HoverCard v-if="project.longDescription">
                     <HoverCardTrigger as-child>
-                      <Button variant="ghost" size="icon" class="h-8 w-8">
+                      <button
+                        class="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                      >
                         <Icon name="lucide:info" class="h-4 w-4" />
                         <span class="sr-only">Project Info</span>
-                      </Button>
+                      </button>
                     </HoverCardTrigger>
                     <HoverCardContent>
                       <div class="space-y-2">
-                        <h4 class="text-sm font-semibold">About this project</h4>
-                        <p class="text-xs">{{ project.longDescription }}</p>
+                        <h4 class="text-sm font-display font-semibold">About this project</h4>
+                        <p class="text-xs text-muted-foreground leading-relaxed">
+                          {{ project.longDescription }}
+                        </p>
                       </div>
                     </HoverCardContent>
                   </HoverCard>
                 </div>
-                <CardDescription class="text-sm text-muted-foreground line-clamp-3">
+                <CardDescription
+                  class="text-sm text-muted-foreground leading-relaxed line-clamp-3 mt-1"
+                >
                   {{ project.description }}
                 </CardDescription>
               </CardHeader>
+
               <CardContent>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-1.5">
                   <Badge
                     v-for="tag in project.tags"
                     :key="tag"
                     variant="secondary"
-                    class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs"
+                    class="text-xs font-body font-medium bg-muted/80 text-muted-foreground"
                   >
                     {{ tag }}
                   </Badge>
@@ -129,20 +137,31 @@
       </div>
     </section>
 
-    <!-- Section divider -->
     <div class="section-divider" />
 
     <!-- CTA Section -->
-    <section class="py-16 md:py-24 relative">
+    <section class="py-20 md:py-28 relative">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-          <h2 class="text-3xl font-bold tracking-tight mb-4">Have a project in mind?</h2>
-          <p class="text-lg text-muted-foreground mb-8">
+          <h2 class="font-display text-3xl font-bold tracking-editorial mb-4">
+            Have a project in mind?
+          </h2>
+          <p class="text-lg text-muted-foreground mb-10 leading-relaxed">
             I'm always looking for interesting projects to work on. Let's discuss how I can help
             bring your ideas to life.
           </p>
-          <Button size="lg" as-child>
-            <NuxtLink to="/contact">Let's Talk</NuxtLink>
+          <Button
+            size="lg"
+            class="group bg-foreground hover:bg-foreground/90 text-background font-body font-semibold transition-all duration-300"
+            as-child
+          >
+            <NuxtLink to="/contact" class="flex items-center">
+              Let's Talk
+              <Icon
+                name="lucide:arrow-right"
+                class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </NuxtLink>
           </Button>
         </div>
       </div>
@@ -156,6 +175,12 @@ import { ref, computed } from 'vue'
 defineOgImageComponent('NuxtSeo')
 
 const activeFilter = ref('all')
+
+const filters = [
+  { label: 'All Projects', value: 'all' },
+  { label: 'Web', value: 'web' },
+  { label: 'Mobile', value: 'mobile' },
+]
 
 const projects = [
   {
@@ -213,8 +238,7 @@ const projects = [
   {
     id: 5,
     title: 'WonderGuide',
-    description:
-      'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries 🌴☀️🌊',
+    description: 'A Virtual travel guide using ChatGPT API to suggest amazing travel itineraries',
     image: '/images/wonderguide.jpg',
     tags: ['Nuxt 3', 'Supabase', 'ChatGPT API'],
     link: 'https://github.com/Vasilis-Rousis/wonderguide-app',

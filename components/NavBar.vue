@@ -1,101 +1,100 @@
 <!-- components/NavBar.vue -->
 <template>
-  <header class="sticky top-0 z-40 w-full border-b bg-background/90 backdrop-blur-sm">
+  <header
+    class="sticky top-0 z-40 w-full border-b border-border/40 bg-background/85 backdrop-blur-xl transition-colors duration-300"
+  >
     <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      <div class="flex gap-6 md:gap-10">
-        <NuxtLink to="/" class="flex items-center space-x-2">
-          <span
-            class="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-500 dark:from-primary dark:to-blue-400"
-          >
-            Vasilis Rousis
-          </span>
-        </NuxtLink>
-      </div>
+      <NuxtLink to="/" class="flex items-center gap-2 group">
+        <span class="accent-dot transition-transform duration-300 group-hover:scale-150" />
+        <span class="font-display text-lg font-bold tracking-editorial text-foreground">
+          Vasilis Rousis
+        </span>
+      </NuxtLink>
 
       <!-- Mobile menu button -->
       <button
-        class="md:hidden rounded-md p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        class="md:hidden rounded-md p-2 text-foreground/70 hover:text-foreground hover:bg-muted/50 transition-colors"
         @click="isMenuOpen = !isMenuOpen"
       >
-        <Icon v-if="!isMenuOpen" name="lucide:menu" class="h-6 w-6" />
-        <Icon v-else name="lucide:x" class="h-6 w-6" />
+        <Icon v-if="!isMenuOpen" name="lucide:menu" class="h-5 w-5" />
+        <Icon v-else name="lucide:x" class="h-5 w-5" />
       </button>
 
       <!-- Desktop menu -->
-      <nav class="hidden md:flex items-center space-x-6">
-        <div v-for="item in navItems" :key="item.href" class="h-16 flex items-center">
-          <div class="relative h-full flex items-center">
-            <NuxtLink
-              :to="item.href"
-              class="text-sm font-medium transition-colors hover:text-primary h-full flex items-center"
-              :class="$route.path === item.href ? 'text-primary' : 'text-foreground'"
-            >
-              {{ item.label }}
-            </NuxtLink>
-            <!-- Underline indicator -->
-            <div
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-all duration-300 ease-in-out"
-              :style="{
-                transform: $route.path === item.href ? 'scaleX(1)' : 'scaleX(0)',
-                opacity: $route.path === item.href ? 1 : 0,
-                transformOrigin: 'left',
-              }"
-            />
-          </div>
+      <nav class="hidden md:flex items-center gap-1">
+        <div v-for="item in navItems" :key="item.href" class="relative">
+          <NuxtLink
+            :to="item.href"
+            class="px-4 py-2 text-sm font-body font-medium tracking-wide transition-colors duration-200 rounded-md"
+            :class="
+              $route.path === item.href
+                ? 'text-accent'
+                : 'text-muted-foreground hover:text-foreground'
+            "
+          >
+            {{ item.label }}
+          </NuxtLink>
+          <div
+            v-if="$route.path === item.href"
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent"
+          />
         </div>
 
-        <Button variant="outline" size="sm" class="ml-4" @click="toggleDarkMode">
-          <Icon
-            name="lucide:sun"
-            class="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-          />
-          <Icon
-            name="lucide:moon"
-            class="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-          />
-          <span class="sr-only">Toggle theme</span>
-        </Button>
+        <div class="ml-4 pl-4 border-l border-border/50">
+          <button
+            class="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-200"
+            @click="toggleDarkMode"
+          >
+            <Icon
+              name="lucide:sun"
+              class="h-4 w-4 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0 dark:absolute"
+            />
+            <Icon
+              name="lucide:moon"
+              class="h-4 w-4 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 absolute dark:relative"
+            />
+            <span class="sr-only">Toggle theme</span>
+          </button>
+        </div>
       </nav>
     </div>
 
     <!-- Mobile menu dropdown -->
-    <div v-if="isMenuOpen" class="md:hidden px-4 py-3 border-t bg-background">
-      <nav class="flex flex-col space-y-3">
-        <div v-for="item in navItems" :key="item.href" class="relative">
-          <NuxtLink
-            :to="item.href"
-            class="block text-sm py-2 font-medium transition-colors hover:text-primary"
-            :class="$route.path === item.href ? 'text-primary' : 'text-foreground'"
-            @click="isMenuOpen = false"
-          >
-            {{ item.label }}
-            <div
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-all duration-300 ease-in-out"
-              :style="{
-                transform: $route.path === item.href ? 'scaleX(1)' : 'scaleX(0)',
-                opacity: $route.path === item.href ? 1 : 0,
-                transformOrigin: 'left',
-              }"
-            />
-          </NuxtLink>
-        </div>
+    <div
+      v-if="isMenuOpen"
+      class="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl"
+    >
+      <nav class="container mx-auto px-4 py-4 flex flex-col gap-1">
+        <NuxtLink
+          v-for="item in navItems"
+          :key="item.href"
+          :to="item.href"
+          class="flex items-center gap-3 px-3 py-2.5 text-sm font-body font-medium rounded-md transition-colors duration-200"
+          :class="
+            $route.path === item.href
+              ? 'text-accent bg-accent/5'
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
+          "
+          @click="isMenuOpen = false"
+        >
+          <span v-if="$route.path === item.href" class="w-1 h-1 rounded-full bg-accent" />
+          {{ item.label }}
+        </NuxtLink>
 
-        <!-- Mobile Dark Mode Toggle -->
-        <div class="pt-2 mt-2 border-t border-border">
+        <div class="mt-2 pt-3 border-t border-border/40">
           <button
-            class="flex w-full items-center justify-between text-sm py-2 font-medium text-foreground hover:text-primary transition-colors"
+            class="flex items-center gap-3 px-3 py-2.5 text-sm font-body font-medium text-muted-foreground hover:text-foreground transition-colors w-full rounded-md hover:bg-muted/30"
             @click="toggleDarkMode"
           >
-            <div class="relative">
-              <Icon
-                name="lucide:sun"
-                class="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-              />
-              <Icon
-                name="lucide:moon"
-                class="absolute top-0 left-0 h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-              />
-            </div>
+            <Icon
+              name="lucide:sun"
+              class="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 dark:hidden"
+            />
+            <Icon
+              name="lucide:moon"
+              class="h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 hidden dark:block"
+            />
+            <span class="text-sm">Toggle theme</span>
           </button>
         </div>
       </nav>
